@@ -1,0 +1,18 @@
+.barra{
+	background-color: #B4BEC9 !important;
+}
+body{
+	background-color: whitesmoke;
+}
+.boton{
+	border-radius: 20px;
+	background-color: #002333;
+	border-style: none;
+}
+.boton:hover{
+    background-color: #159A9C;
+}
+.a_boton{
+	color: whitesmoke;
+	text-decoration: none;
+}
