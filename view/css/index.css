@@ -1,9 +1,11 @@
+body{
+	background-color: rgb(52, 148, 226);
+}
+
 .barra{
 	background-color: #B4BEC9 !important;
 }
-body{
-	background-color: whitesmoke;
-}
+
 .boton{
 	border-radius: 20px;
 	background-color: #002333;
