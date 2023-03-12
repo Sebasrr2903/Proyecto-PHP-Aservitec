@@ -1,17 +1,24 @@
-<<?php
+<?php
 
-function OpenDB()
-{
-    //cambiar el puerto si da error (3308) // (3306)
-    return mysqli_connect("localhost:3306", "root", "290306", "prueba");
+$conn = "";
+
+try {
+	$servername = "localhost";
+	$dbname = "aservitecdb";
+	$username = "root";
+	$password = "Palomo19952813.";
+
+	$conn = new PDO(
+		"mysql:host=$servername; dbname=geeksforgeeks",
+		$username, $password
+	);
+	
+$conn->setAttribute(PDO::ATTR_ERRMODE,
+					PDO::ERRMODE_EXCEPTION);
 }
-
-function CloseDB($enlace)
-{
-    mysqli_close($enlace);
+catch(PDOException $e) {
+	echo "Connection failed: " . $e->getMessage();
 }
 
 ?>
-
-
 

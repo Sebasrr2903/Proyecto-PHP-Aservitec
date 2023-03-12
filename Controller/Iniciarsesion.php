@@ -2,51 +2,39 @@
 session_start();
 
 
-include('conexion');
+include('conexion.php');
 
 
 
-if (isset($_POST['Usuario']) && isset($_POST['Contrseña'])) {
-    function validate($data)
-    {
-        $data = trim($data);
-        $data = stripcslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
-    $Usuario = validate($_POST['Usuario']);
-    $Contraseña= validate($_POST['Contraseña']);
-
-    if (empty($Usuario)) {
-        header("Location: InicioSesion.php?error=El Usuario Es Requerido");
-
-    } elseif (empty($Contraseña)) {
-        header("Location: InicioSesion.php?error=La Clave Es Requerida");
-        exit();
-    } else {
-       // $Clave = md5($Clave);
-        $sql = "SELECT * FROM usuarios where Usuario= '$Usuario' and Contraseña='$Contraseña'";
-        $result = mysqli_query($conexion, $sql);
-
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row['Usuario'] === $Usuario && $row['Contrseña'] === $Contraseña) {
-                $_SESSION['Usuario'] = $row['Usuario'];
-                $_SESSION['NombreCompleto'] = $row['NombreCompleto'];
-                $_SESSION['Id'] = $row['Id'];
-                header("Location: index.php");
-                exit();
-            } else {
-                header("Location:InicioSesion.php?error =El usuario o la contraseña estan incorrectas");
-            }
-
-        } else {
-            header("Location:InicioSesion.php?error =El usuario o la contraseña estan incorrectas");
-
+function test_input($data) {
+     
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+  
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+     
+    $username = test_input($_POST["Usuario"]);
+    $password = test_input($_POST["Contraseña"]);
+    $stmt = $conn->prepare("SELECT * FROM usuarios");
+    $stmt->execute();
+    $users = $stmt->fetchAll();
+     
+    foreach($users as $user) {
+         
+        if(($user['Usuario'] == $username) &&
+            ($user['Contraseña'] == $password)) {
+                header("location: view/InicioSesion.html");
+        }
+        else {
+            echo "<script language='javascript'>";
+            echo "alert('WRONG INFORMATION')";
+            echo "</script>";
+            die();
         }
     }
-} else {
-    header("Location:InicioSesion.php");
-    exit();
 }
+ 
+?>
