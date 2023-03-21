@@ -3,55 +3,118 @@ include_once 'General.php';
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html style="font-size: 16px;" lang="es">
 
 <head>
-<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Proyecto web</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link  href="css/Solicitud.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="Solicitud de matenimiento">
+  <meta name="description" content="">
+  <title>Acerca de</title>
+  <link rel="stylesheet" href="css/niceSolicitud.css" media="screen">
+  <link rel="stylesheet" href="css/Solicitud.css" media="screen">
+  <script class="u-script" type="text/javascript" src="../js/Solicitud.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="../js/niceSolicitud.js" defer=""></script>
+  <meta name="generator" content="Nicepage 5.6.16, nicepage.com">
+  <meta name="referrer" content="origin">
+  <link id="u-theme-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+  
+  <?php
 
+  links();
+  ?>
+
+  <script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": ""
+}</script>
+  <meta name="theme-color" content="#478ac9">
+  <meta property="og:title" content="Solicitud">
+  <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/">
 </head>
 
-<body>
-  <div> 
 <?php
-navBarUni();
+
+StyleEx();
 ?>
-  
-</div>
 
-<h1 class="titulo">Solicitud</h1>
-  <div class="form-floating mb-1">
-    <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com">
-    <label for="floatingInputDisabled">Email:</label>
-  </div>
 
-  <div class="form-floating mb-1">
-    <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com">
-    <label for="floatingInputDisabled">Nombre:</label>
-  </div>
-  <div class="form-floating mb-1">
-    <input type="email" class="form-control" id="floatingInputDisabled" placeholder="name@example.com">
-    <label for="floatingInputDisabled">Apellidos:</label>
-  </div>
-  <div class="form-floating mb-1">
-    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2Disabled"
-      style="height: 100px"></textarea>
-    <label for="floatingTextarea2Disabled">Informacion:</label>
-  </div>
-  <div class="form-floating">
-    <select class="form-select" id="floatingSelectDisabled" aria-label="Floating label disabled select example">
-      <option value="1">Matenimiento</option>
-      <option value="2">Revision</option>
-    </select>
-    <label for="floatingSelectDisabled">Seleccione tipo que solicita:</label>
-  </div>
+
+<body class="u-body u-xl-mode" data-lang="es">
+
+  <?php
+  navbar();
+  ?>
+
+
+  <section class="u-align-center u-clearfix u-custom-color-1 u-section-1" src="" id="carousel_7349">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
+        <div class="u-gutter-0 u-layout">
+          <div class="u-layout-row">
+            <div
+              class="u-align-center u-container-style u-grey-10 u-layout-cell u-radius-50 u-shape-round u-size-60 u-layout-cell-1">
+              <div class="u-container-layout u-container-layout-1">
+                <h2 class="u-text u-text-default u-text-1">Solicitud de matenimiento</h2>
+                <div class="u-form u-form-1">
+                  <form action="https://forms.nicepagesrv.com/v2/form/process"
+                    class="u-clearfix u-form-spacing-50 u-form-vertical u-inner-form" style="padding: 0px;"
+                    source="email" name="form">
+                    <div class="u-form-group u-form-name u-label-none u-form-group-1">
+                      <label for="name-30a4" class="u-form-control-hidden u-label" wfd-invisible="true"></label>
+                      <input type="text" placeholder="name" id="name-30a4" name="nombre"
+                        class="u-border-2 u-border-white u-input u-input-rectangle u-radius-50 u-input-1" required="">
+                    </div>
+
+                    <div class="u-form-group u-form-phone u-label-none u-form-group-4">
+                      <label for="text-8fe8" class="u-label">Entrada</label>
+                      <input type="tel" id="text-8fe8" name="telephone"
+                        class="u-border-2 u-border-white u-input u-input-rectangle u-radius-50 u-input-4"
+                        required="required" placeholder="(506)1111-1111">
+                    </div>
+                    <div class="u-form-email u-form-group u-label-none u-form-group-2">
+                      <label for="email-cd2c" class="u-form-control-hidden u-label" wfd-invisible="true"></label>
+                      <input type="email" id="email-cd2c" name="email"
+                        class="u-border-2 u-border-white u-input u-input-rectangle u-radius-50 u-input-2" required=""
+                        placeholder="email">
+                    </div>
+                    <div class="u-form-group u-form-textarea u-label-none u-form-group-3">
+                      <label for="textarea-6a3a" class="u-label">Area de Texto</label>
+                      <textarea rows="4" cols="50" id="textarea-6a3a" name="textarea"
+                        class="u-border-2 u-border-white u-input u-input-rectangle u-radius-50 u-input-3"
+                        required="required" placeholder="Informacion del matenimiento"></textarea>
+                    </div>
+                    <div class="u-align-center u-form-group u-form-submit u-label-none u-form-group-4">
+                      <a href="#"
+                        class="u-active-white u-white u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-white u-radius-50 u-text-active-black u-text-hover-black u-btn-1">Enviar</a>
+                      <input type="submit" value="submit" class="u-form-control-hidden" wfd-invisible="true">
+                    </div>
+                    <div class="u-form-send-message u-form-send-success" wfd-invisible="true"> Gracias tu matenimiento
+                      hacido solicitado! </div>
+                    <div class="u-form-send-error u-form-send-message" wfd-invisible="true"> No se puede enviar su
+                      mensaje. Corrija los errores y vuelva a intentarlo. </div>
+                    <input type="hidden" value="" name="recaptchaResponse" wfd-invisible="true">
+                    <input type="hidden" name="formServices" value="34f12964d4bcf00627c3dbca0e472fb8">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php
+  Footer();
+  ?>
+
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+	crossorigin="anonymous"></script>
 </html>
