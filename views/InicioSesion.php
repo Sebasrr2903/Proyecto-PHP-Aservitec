@@ -14,14 +14,14 @@ include_once 'General.php';
 	<?php
 	links();
 	?>
-	<link  href="css/sign-in.css" rel="stylesheet">
+	<link  href="dist/css/sign-in.css" rel="stylesheet">
 
 </head>
 
 	<body>
 		
 	
-		<form action="view/IncioSesion.php" method="POST">
+		<form action="views/IncioSesion.php" method="POST">
 			
 
 			<h1>Inicio Sesión</h1>

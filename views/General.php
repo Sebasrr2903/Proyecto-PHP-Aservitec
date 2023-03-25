@@ -73,7 +73,7 @@ function navbar()
     
     <nav class="navbar navbar-expand-lg bg-body-tertiary" style="color:blue;">
     <div class="container-fluid">
-        <a class="navbar-brand me-auto" href="#"><img src="img/ASERVITEC.png" alt="20%"
+        <a class="navbar-brand me-auto" href="#"><img src="dist/img/ASERVITEC.png" alt="20%"
                 width="30%"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"

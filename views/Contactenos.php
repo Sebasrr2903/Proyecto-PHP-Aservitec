@@ -10,8 +10,8 @@ include_once 'General.php';
     <meta name="keywords" content="Contactenos">
     <meta name="description" content="">
     <title>Contacto</title>
-    <link rel="stylesheet" href="css/niceContactenos.css" media="screen">
-    <link rel="stylesheet" href="css/Contacto.css" media="screen">
+    <link rel="stylesheet" href="dist/css/niceContactenos.css" media="screen">
+    <link rel="stylesheet" href="dist/css/Contacto.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 5.6.16, nicepage.com">
