@@ -1,17 +1,37 @@
-<<?php
+<?php
 
-function OpenDB()
-{
-    //cambiar el puerto si da error (3308) // (3306)
-    return mysqli_connect("localhost:3306", "root", "290306", "prueba");
+class Database{
+
+    private $host;
+    private $db;
+    private $user;
+    private $password;
+    private $charset;
+
+    public function __construct(){
+        $this->host = '127.0.0.1:3308';
+        $this->db = 'aservitecdb';
+        $this->user = 'root';
+        $this->password = '';
+        $this->charset = 'utf8mb4';
+    }
+
+    function connect(){
+        try{
+            $connection = "mysql:host=" . $this->host . ";dbname=" . $this->db . ";charset=" . $this->charset;
+            $options = [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_EMULATE_PREPARES   => false,
+            ];
+            
+            $pdo = new PDO($connection, $this->user, $this->password, $options);
+    
+            return $pdo;
+        }catch(PDOException $e){
+            print_r('Error connection: ' . $e->getMessage());
+        }
+    }
+
 }
-
-function CloseDB($enlace)
-{
-    mysqli_close($enlace);
-}
-
 ?>
-
-
 

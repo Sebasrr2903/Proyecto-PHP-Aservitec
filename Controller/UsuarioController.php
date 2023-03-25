@@ -2,20 +2,21 @@
 if (session_status() == PHP_SESSION_NONE)
     session_start();
 
-include_once __DIR__ . '\..\Model\UsuarioModel.php';
+    include_once __DIR__ . '\..\Model\UsuarioModel.php';
+
+
 function ListarUsuarios()
 {
-    $datos = ListarUsuariosModel();
+    $stmt= ListarUsuariosModel();
 
-    if ($datos->num_rows > 0) {
-        while ($fila = mysqli_fetch_array($datos)) {
+   
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             echo '<tr>';
-            echo '<td>' . $fila["Id"] . '</td>';
-            echo '<td>' . $fila["Usuario"] . '</td>';
-            echo '<td>' . $fila["Contraseña"] . '</td>';
-            echo '<td>' . $fila["NombreCompleto"] . '</td>';
+            echo '<td>' . $row["Rol_ID"] . '</td>';
+            echo '<td>' . $row["username"] . '</td>';
+            echo '<td>' . $row["password"] . '</td>';
+            echo '<td>' . $row["Usuario_ID"] . '</td>';
             echo '</tr>';
         }
-    }
+    
 }
-?>

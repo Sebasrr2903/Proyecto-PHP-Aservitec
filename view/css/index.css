@@ -1,33 +1,17 @@
+body{
 
-
-
-#img{
-	height: 10;
-	width: 10;
+background-color: #651626;
+}
+.boton{
+	border-radius: 20px;
+	background-color: #651626;
+	border-style: none;
+}
+.boton:hover{
+    background-color: #c91313;
+}
+.a_boton{
+	color: whitesmoke;
+	text-decoration: none;
 }
 
-#mensajito{
-	color: white;
-	font-size: 17px;
-	width: 40%;
-	margin: 0px auto;
-}
-#img_footer2{
-	height: 150px;
-	width: 80%;
-border-radius: 150px;
-  transition: transform 0.5s;
-
-}
-#titulo{
-	color: white;
-}
-#titulo2{
-	color:white
-}
-#mensajito2{
-	color: white;
-}
-#cont{
-	background-color: #F9305D;
-}

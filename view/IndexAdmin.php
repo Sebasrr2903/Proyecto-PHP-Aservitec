@@ -1,6 +1,17 @@
 <?php
-include_once 'view/General.php';
+include_once 'General.php';
+
+
 session_start();
+
+
+function closeSession(){
+	session_unset();
+	session_destroy();
+}
+
+
+
 
 
 ?>
@@ -19,7 +30,7 @@ session_start();
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
 		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer">
-	<link rel="stylesheet" href="view/css/index.css">
+	<link rel="stylesheet" href="css/index.css">
 
 
 
@@ -30,7 +41,7 @@ session_start();
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><img src="view/img/ASERVITEC.png" alt="20%" width="30%">BIENVENIDO</a>
+			<a class="navbar-brand" href="#"><img src="img/ASERVITEC.png" alt="20%" width="30%">BIENVENIDO ADMINISTRADOR</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
@@ -66,7 +77,7 @@ session_start();
 				</ul>
 				<hr>
 				<div class="nav-item"> <button class="btn btn-outline-success me-2 boton" type="button"><a
-							class="a_boton" href="view/InicioSesion.php">Iniciar sesión</a></button>
+							class="a_boton" href="InicioSesion.php" onblur="closeSession();">Cerrar Sesion</a></button>
 				</div>
 			</div>
 		</div>

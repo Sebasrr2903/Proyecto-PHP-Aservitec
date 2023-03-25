@@ -1,5 +1,5 @@
 <?php
-include_once 'view/General.php';
+include_once 'General.php';
 session_start();
 
 
@@ -19,7 +19,7 @@ session_start();
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
 		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer">
-	<link rel="stylesheet" href="view/css/index.css">
+	<link rel="stylesheet" href="css/index.css">
 
 
 
