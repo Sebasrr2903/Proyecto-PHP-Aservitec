@@ -47,10 +47,10 @@ session_start();
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="view/Solicitud.php">Solicitud de Matenimiento</a>
+						<a class="nav-link disabled" href="view/Solicitud.php">Solicitud de Matenimiento</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href=""><i class="fa-solid fa-cart-shopping"></i>Carrito</a>
+					<li class="nav-item disabled" >
+						<a class="nav-link disabled " href=""><i class="fa-solid fa-cart-shopping disabled"></i>Carrito</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

@@ -1,5 +1,5 @@
 <?php
-include_once 'conexion.php';
+include_once '../Config/conexion.php';
 
 if(isset($_SESSION['Rol_ID'])){
     switch($_SESSION['Rol_ID']){
@@ -21,8 +21,8 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $db = new Database();
-    $query = $db->connect()->prepare('SELECT *FROM usuarios WHERE username = :username AND password = :password');
+    $db = new Conexion();
+    $query = $db->conectar()->prepare('SELECT *FROM usuarios WHERE username = :username AND password = :password');
     $query->execute(['username' => $username, 'password' => $password]);
 
     $row = $query->fetch(PDO::FETCH_NUM);
@@ -37,7 +37,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
             break;
 
             case 2:
-                header('location: ../index.php');
+                header('location: ../view/IndexUsua.php');
             break;
 
             default:

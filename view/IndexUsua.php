@@ -30,7 +30,7 @@ session_start();
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><img src="view/img/ASERVITEC.png" alt="20%" width="30%">BIENVENIDO</a>
+			<a class="navbar-brand" href="#"><img src="img/ASERVITEC.png" alt="20%" width="30%">BIENVENIDO</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
@@ -39,7 +39,7 @@ session_start();
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mx-auto ">
 					<li class="nav-item">
-						<a class="nav-link" href="index.php">Inicio</a>
+						<a class="nav-link" href="IndexUsua.php">Inicio</a>
 					</li>
 
 					<li class="nav-item">
@@ -58,7 +58,7 @@ session_start();
 							Opciones
 						</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="view/Contactenos.php">Contactenos</a></li>
+							<li><a class="dropdown-item" href="Contactenos.php">Contactenos</a></li>
 							<li><a class="dropdown-item" href="#">Quienes Somos?</a></li>
 
 						</ul>
@@ -66,7 +66,7 @@ session_start();
 				</ul>
 				<hr>
 				<div class="nav-item"> <button class="btn btn-outline-success me-2 boton" type="button"><a
-							class="a_boton" href="view/InicioSesion.php">Iniciar sesión</a></button>
+							class="a_boton" href="../index.php">Cerrar Sesion</a></button>
 				</div>
 			</div>
 		</div>
@@ -75,13 +75,13 @@ session_start();
 	<div id="carouselExample" class="carousel slide">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="view/img/wecare_logo (2).png" class="d-block w-100" alt="...">
+				<img src="img/wecare_logo (2).png" class="d-block w-100" alt="...">
 			</div>
 			<div class="carousel-item">
-				<img src="view/img/wecare_logo (2).png" class="d-block w-100" alt="...">
+				<img src="img/wecare_logo (2).png" class="d-block w-100" alt="...">
 			</div>
 			<div class="carousel-item">
-				<img src="view/img/wecare_logo (2).png" class="d-block w-100" alt="...">
+				<img src="img/wecare_logo (2).png" class="d-block w-100" alt="...">
 			</div>
 		</div>
 		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

@@ -80,7 +80,7 @@ function navbar()
             <div class="nav-item ms-auto"> <button class="btn btn-outline-success me-2 boton"
                     type="button"><a
                         class="a_boton" style=""
-                        href="InicioSesion.php">Iniciar sesión</a></button>
+                        href="InicioSesion.php">Cerrar Sesion</a></button>
             </div>
         </div>
     </div>
