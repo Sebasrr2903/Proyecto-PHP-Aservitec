@@ -1,20 +1,33 @@
-body{
-	background-color: rgb(52, 148, 226);
+
+
+
+#img{
+	height: 10;
+	width: 10;
 }
 
-.barra{
-	background-color: #B4BEC9 !important;
+#mensajito{
+	color: white;
+	font-size: 17px;
+	width: 40%;
+	margin: 0px auto;
 }
+#img_footer2{
+	height: 150px;
+	width: 80%;
+border-radius: 150px;
+  transition: transform 0.5s;
 
-.boton{
-	border-radius: 20px;
-	background-color: #002333;
-	border-style: none;
 }
-.boton:hover{
-    background-color: #159A9C;
+#titulo{
+	color: white;
 }
-.a_boton{
-	color: whitesmoke;
-	text-decoration: none;
+#titulo2{
+	color:white
+}
+#mensajito2{
+	color: white;
+}
+#cont{
+	background-color: #F9305D;
 }
