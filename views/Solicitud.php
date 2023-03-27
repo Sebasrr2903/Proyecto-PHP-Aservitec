@@ -11,10 +11,10 @@ include_once 'General.php';
   <meta name="keywords" content="Solicitud de matenimiento">
   <meta name="description" content="">
   <title>Acerca de</title>
-  <link rel="stylesheet" href="css/niceSolicitud.css" media="screen">
-  <link rel="stylesheet" href="css/Solicitud.css" media="screen">
-  <script class="u-script" type="text/javascript" src="../js/Solicitud.js" defer=""></script>
-  <script class="u-script" type="text/javascript" src="../js/niceSolicitud.js" defer=""></script>
+  <link rel="stylesheet" href="dist/css/niceSolicitud.css" media="screen">
+  <link rel="stylesheet" href="dist/css/Solicitud.css" media="screen">
+  <script class="u-script" type="text/javascript" src="dist/js/Solicitud.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="dist/js/niceSolicitud.js" defer=""></script>
   <meta name="generator" content="Nicepage 5.6.16, nicepage.com">
   <meta name="referrer" content="origin">
   <link id="u-theme-google-font" rel="stylesheet"

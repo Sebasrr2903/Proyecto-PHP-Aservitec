@@ -51,8 +51,6 @@ CREATE TABLE Distritos (
     REFERENCES Cantones(Canton_ID)
 );
 
-
-
 CREATE TABLE Clientes (
     Identificacion VARCHAR(15) NOT NULL,
     Tipo_Identificacion_ID INT NOT NULL,
@@ -66,9 +64,9 @@ CREATE TABLE Clientes (
     PRIMARY KEY (Identificacion),
     CONSTRAINT FK_TipoIdentificacion FOREIGN KEY (Tipo_Identificacion_ID)
     REFERENCES Tipo_Identificacion(Tipo_Identificacion_ID),
-	CONSTRAINT FK_Provincia FOREIGN KEY (Provincia_ID)
+	CONSTRAINT FK_Provincia1 FOREIGN KEY (Provincia_ID)
     REFERENCES ProvinciaS(Provincia_ID),
-	CONSTRAINT FK_Canton FOREIGN KEY (Canton_ID)
+	CONSTRAINT FK_Canton1 FOREIGN KEY (Canton_ID)
     REFERENCES Cantones(Canton_ID),
 	CONSTRAINT FK_Distrito FOREIGN KEY (Distrito_ID)
     REFERENCES Distritos(Distrito_ID)
@@ -116,7 +114,7 @@ CREATE TABLE Atenciones (
     Archivos blob,
     PRIMARY KEY (Atencion_ID),
 	CONSTRAINT FK_ClientesAtencion FOREIGN KEY (Cliente_ID)
-    REFERENCES Clientes(Cliente_ID),
+    REFERENCES Clientes(Identificacion),
 	CONSTRAINT FK_usuarioAtencion FOREIGN KEY (Usuario_ID)
     REFERENCES Usuarios(Usuario_ID)
 );
@@ -135,13 +133,11 @@ CREATE TABLE Comentario_Atenciones (
     REFERENCES Usuarios(Usuario_ID)
 );
 
-
 CREATE TABLE Tipo_Proforma (
     Tipo_Proforma_ID INT NOT NULL auto_increment,
 	Nombre VARCHAR(60),
     PRIMARY KEY (Tipo_Proforma_ID)
 );
-
 
 CREATE TABLE Solicitudes_Proformas (
     Solicitudes_Proformas_ID INT NOT NULL auto_increment,
@@ -151,14 +147,22 @@ CREATE TABLE Solicitudes_Proformas (
     Fecha_Creacion datetime NOT NULL DEFAULT NOW(),
     PRIMARY KEY (Solicitudes_Proformas_ID),
 	CONSTRAINT FK_ClienteSolucitud FOREIGN KEY (Cliente_ID)
-    REFERENCES Clientes(Cliente_ID),
+    REFERENCES Clientes(Identificacion),
 	CONSTRAINT FK_Tipo_Proforma FOREIGN KEY (Tipo_Proforma_ID)
     REFERENCES Tipo_Proforma(Tipo_Proforma_ID)
 );
 
-
 /* CREACION DE USUARIO DB*/
 
-CREATE USER 'admin' IDENTIFIED BY '123456';
-GRANT ALL  ON AserviTecDB.* To 'admin' ;
+CREATE USER 'adminAservitec' IDENTIFIED BY '123456';
+GRANT ALL  ON AserviTecDB.* To 'adminAservitec' ;
 FLUSH PRIVILEGES;
+
+/* INSERTS */
+INSERT INTO Tipo_Identificacion(Tipo)
+VALUES('Cedula de identificación'),('Identificación extranjera');
+
+select Provincia_ID
+
+
+

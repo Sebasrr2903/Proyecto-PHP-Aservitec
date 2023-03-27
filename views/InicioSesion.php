@@ -14,25 +14,26 @@ include_once 'General.php';
 	<?php
 	links();
 	?>
-	<link  href="css/sign-in.css" rel="stylesheet">
+	<link  href="dist/css/sign-in.css" rel="stylesheet">
+	<script src="../js/LoginController.js"></script>
 
 </head>
 
 	<body>
 		
 	
-		<form action="view/IncioSesion.php" method="POST">
+		<form onsubmit="LoginRequest()" method="POST">
 			
 
 			<h1>Inicio Sesión</h1>
 			<hr>
 			<i class="fa-solid fa-user"></i>
 			<label>Usuario</label>
-			<input type="text" name="Usuario" placeholder="Nombre de Usuario">
+			<input id='user' type="text" name="Usuario" placeholder="Nombre de Usuario" >
 
 			<i class="fa-solid fa-unlock"></i>
 			<label>Contraseña</label>
-			<input type="password" name="Contraseña" placeholder="Contraseña">
+			<input  id='pass' type="password" name="Contraseña" placeholder="Contraseña">
 			<hr>
 			<button type="submit
 				">Iniciar Sesión</button>
