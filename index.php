@@ -1,12 +1,6 @@
 <?php
-<<<<<<< HEAD
-include_once 'views/General.php';
-=======
 include_once 'view/General.php';
 session_start();
-
-
->>>>>>> master
 ?>
 
 <!DOCTYPE html>
@@ -34,11 +28,7 @@ session_start();
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
-<<<<<<< HEAD
-			<a class="navbar-brand" href="#"><img src="views/dist/img/ASERVITEC.png" alt="20%" width="30%"></a>
-=======
 			<a class="navbar-brand" href="#"><img src="view/img/ASERVITEC.png" alt="20%" width="30%">BIENVENIDO</a>
->>>>>>> master
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
