@@ -18,7 +18,7 @@
                 icon: 'success',
                 title: 'Se envió el mensaje',
                 timer: 2500,
-                showConfirmButton: false
+                showConfirmButton: true
               })
 
         window.location = "contacto.html";
