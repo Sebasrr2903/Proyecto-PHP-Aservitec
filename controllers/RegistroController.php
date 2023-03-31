@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD:controllers/RegistroController.php
-require_once '../models/RegistroModel.php';
-=======
 require_once '../Model/RegistroModel.php';
->>>>>>> master:Controller/RegistroController.php
 switch($_GET["op"]){
     case 'llenarID':
         $resultado=RegistroModel::mostrarID();

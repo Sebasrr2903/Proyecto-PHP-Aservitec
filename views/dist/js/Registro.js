@@ -41,3 +41,6 @@ function cambiarCanton(x){
             $("#Distrito").html(res); });
     }
 }
+$('#datos').on('sumbit',function(event){
+    event.preventDefault();
+})

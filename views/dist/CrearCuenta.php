@@ -14,7 +14,7 @@
             <a href="../index.php"><img class="logo" src="img/wecare_logo (2).png"/><a>
         </div>
         <div class="formulario">
-            <form name="datos" method="post" class="was_validated">
+            <form name="datos" id="datos" method="post">
                 <div id="details">
                     <div class="container">
                         <div class="row">
