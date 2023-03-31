@@ -17,7 +17,7 @@
             Swal.fire({
                 icon: 'success',
                 title: 'Se envió el mensaje',
-                timer: 2500,
+                timer: 5000,
                 showConfirmButton: true
               })
 
