@@ -1,168 +1,218 @@
-/*Creación de la Base de Datos*/
-CREATE DATABASE AserviTecDB;
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1:3308
+-- Tiempo de generación: 25-03-2023 a las 06:18:30
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.0.25
 
-USE AserviTecDB;
-
-/* CREACIÓN DE TABLAS*/
-
-CREATE TABLE Roles (
-    Rol_ID INT NOT NULL auto_increment,
-	Nombre VARCHAR(60),
-    PRIMARY KEY (Rol_ID)
-);
-
-CREATE TABLE Usuarios (
-    Usuario_ID INT NOT NULL auto_increment,
-    correo VARCHAR(100) NOT NULL,
-    Contrasena VARCHAR(100) NOT NULL,
-	Rol_ID INT NOT NULL,
-    PRIMARY KEY (Usuario_ID),
-    CONSTRAINT FK_Rol FOREIGN KEY (Rol_ID)
-    REFERENCES Roles(Rol_ID)
-);
-
-CREATE TABLE Tipo_Identificacion (
-    Tipo_Identificacion_ID INT NOT NULL auto_increment,
-	Tipo VARCHAR(60),
-    PRIMARY KEY (Tipo_Identificacion_ID)
-);
-
-CREATE TABLE Provincias (
-    Provincia_ID INT NOT NULL auto_increment,
-	Nombre VARCHAR(60),
-    PRIMARY KEY (Provincia_ID)
-);
-
-CREATE TABLE Cantones (
-    Canton_ID INT NOT NULL auto_increment,
-	Nombre VARCHAR(60),
-	Provincia_ID INT NOT NULL,
-    PRIMARY KEY (Canton_ID),
-	CONSTRAINT FK_Provincia FOREIGN KEY (Provincia_ID)
-    REFERENCES Provincias(Provincia_ID)
-);
-
-CREATE TABLE Distritos (
-    Distrito_ID INT NOT NULL auto_increment,
-	Nombre VARCHAR(60),
-    Canton_ID INT NOT NULL,
-    PRIMARY KEY (Distrito_ID),
-	CONSTRAINT FK_Canton FOREIGN KEY (Canton_ID)
-    REFERENCES Cantones(Canton_ID)
-);
-
-CREATE TABLE Clientes (
-    Identificacion VARCHAR(15) NOT NULL,
-    Tipo_Identificacion_ID INT NOT NULL,
-    Nombre VARCHAR(100) NOT NULL,
-    Correo VARCHAR(20) NOT NULL,
-    Telefono VARCHAR(15) NOT NULL,
-    Provincia_ID INT NOT NULL,
-	Canton_ID INT NOT NULL,
-    Distrito_ID INT NOT NULL,
-    Direccion_Exacta VARCHAR(250) NOT NULL,
-    PRIMARY KEY (Identificacion),
-    CONSTRAINT FK_TipoIdentificacion FOREIGN KEY (Tipo_Identificacion_ID)
-    REFERENCES Tipo_Identificacion(Tipo_Identificacion_ID),
-	CONSTRAINT FK_Provincia1 FOREIGN KEY (Provincia_ID)
-    REFERENCES ProvinciaS(Provincia_ID),
-	CONSTRAINT FK_Canton1 FOREIGN KEY (Canton_ID)
-    REFERENCES Cantones(Canton_ID),
-	CONSTRAINT FK_Distrito FOREIGN KEY (Distrito_ID)
-    REFERENCES Distritos(Distrito_ID)
-);
-
-CREATE TABLE Productos (
-    Producto_ID INT NOT NULL auto_increment,
-    Nombre VARCHAR(100) NOT NULL,
-    Descripcion VARCHAR(250) NOT NULL,
-    Precio double NOT NULL,
-    IVA INT NOT NULL,
-    PRIMARY KEY (Producto_ID)
-);
-
-CREATE TABLE Carrito (
-    Carro_ID INT NOT NULL auto_increment,
-    Cliente_ID  VARCHAR(15) NOT NULL,
-    Subtotal double NOT NULL,
-    Total double NOT NULL,
-    PRIMARY KEY (Carro_ID),
-	CONSTRAINT FK_CarritoCliente FOREIGN KEY (Cliente_ID)
-    REFERENCES Clientes(Identificacion)
-);
-
-CREATE TABLE Productos_Carrito (
-    Productos_Carrito_ID INT NOT NULL auto_increment,
-    Carro_ID INT NOT NULL,
-    Producto_ID INT NOT NULL,
-    Cantidad INT NOT NULL,
-    PRIMARY KEY (Productos_Carrito_ID),
-	CONSTRAINT FK_ProductoCarrito FOREIGN KEY (Producto_ID)
-    REFERENCES Productos(Producto_ID),
-	CONSTRAINT FK_CarritoProducto FOREIGN KEY (Carro_ID)
-    REFERENCES Carrito(Carro_ID)
-);
-
-CREATE TABLE Atenciones (
-    Atencion_ID INT NOT NULL auto_increment,
-    Cliente_ID VARCHAR(15) NOT NULL,
-    Descripion VARCHAR(250) NOT NULL,
-    Fecha_Creacion datetime NOT NULL DEFAULT NOW(),
-	Usuario_ID INT NOT NULL,
-    Fecha_Atencion datetime,
-    Fecha_Resolucion datetime,
-    Archivos blob,
-    PRIMARY KEY (Atencion_ID),
-	CONSTRAINT FK_ClientesAtencion FOREIGN KEY (Cliente_ID)
-    REFERENCES Clientes(Identificacion),
-	CONSTRAINT FK_usuarioAtencion FOREIGN KEY (Usuario_ID)
-    REFERENCES Usuarios(Usuario_ID)
-);
-
-CREATE TABLE Comentario_Atenciones (
-    Comentario_Atenciones_ID INT NOT NULL auto_increment,
-	Atencion_ID INT NOT NULL,
-	Usuario_ID INT NOT NULL,
-    Comentario VARCHAR(250),
-    Fecha_Creacion datetime NOT NULL DEFAULT NOW(),
-    Archivos blob,
-    PRIMARY KEY (Comentario_Atenciones_ID),
-	CONSTRAINT FK_ComentarioAtencion FOREIGN KEY (Atencion_ID)
-    REFERENCES Atenciones(Atencion_ID),
-	CONSTRAINT FK_usuarioComentarioAtencion FOREIGN KEY (Usuario_ID)
-    REFERENCES Usuarios(Usuario_ID)
-);
-
-CREATE TABLE Tipo_Proforma (
-    Tipo_Proforma_ID INT NOT NULL auto_increment,
-	Nombre VARCHAR(60),
-    PRIMARY KEY (Tipo_Proforma_ID)
-);
-
-CREATE TABLE Solicitudes_Proformas (
-    Solicitudes_Proformas_ID INT NOT NULL auto_increment,
-	Cliente_ID  VARCHAR(15) NOT NULL,
-    Tipo_Proforma_ID INT NOT NULL,
-    Comentario VARCHAR(250),
-    Fecha_Creacion datetime NOT NULL DEFAULT NOW(),
-    PRIMARY KEY (Solicitudes_Proformas_ID),
-	CONSTRAINT FK_ClienteSolucitud FOREIGN KEY (Cliente_ID)
-    REFERENCES Clientes(Identificacion),
-	CONSTRAINT FK_Tipo_Proforma FOREIGN KEY (Tipo_Proforma_ID)
-    REFERENCES Tipo_Proforma(Tipo_Proforma_ID)
-);
-
-/* CREACION DE USUARIO DB*/
-
-CREATE USER 'adminAservitec' IDENTIFIED BY '123456';
-GRANT ALL  ON AserviTecDB.* To 'adminAservitec' ;
-FLUSH PRIVILEGES;
-
-/* INSERTS */
-INSERT INTO Tipo_Identificacion(Tipo)
-VALUES('Cedula de identificación'),('Identificación extranjera');
-
-select Provincia_ID
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Base de datos: `aservitecdb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cantones`
+--
+
+CREATE TABLE `cantones` (
+  `Canton_ID` int(11) NOT NULL,
+  `Nombre` varchar(60) DEFAULT NULL,
+  `Provincia_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `distritos`
+--
+
+CREATE TABLE `distritos` (
+  `Distrito_ID` int(11) NOT NULL,
+  `Nombre` varchar(60) DEFAULT NULL,
+  `Canton_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `provincias`
+--
+
+CREATE TABLE `provincias` (
+  `Provincia_ID` int(11) NOT NULL,
+  `Nombre` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `Rol_ID` int(11) NOT NULL,
+  `Nombre` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`Rol_ID`, `Nombre`) VALUES
+(1, 'administrador'),
+(2, 'Colaborador');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipo_identificacion`
+--
+
+CREATE TABLE `tipo_identificacion` (
+  `Tipo_Identificacion_ID` int(11) NOT NULL,
+  `Tipo` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `Usuario_ID` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `Rol_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`Usuario_ID`, `username`, `password`, `Rol_ID`) VALUES
+(1, 'Administrador', '1234', 1),
+(2, 'Colaborador', '1234', 2);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `cantones`
+--
+ALTER TABLE `cantones`
+  ADD PRIMARY KEY (`Canton_ID`),
+  ADD KEY `FK_Provincia` (`Provincia_ID`);
+
+--
+-- Indices de la tabla `distritos`
+--
+ALTER TABLE `distritos`
+  ADD PRIMARY KEY (`Distrito_ID`),
+  ADD KEY `FK_Canton` (`Canton_ID`);
+
+--
+-- Indices de la tabla `provincias`
+--
+ALTER TABLE `provincias`
+  ADD PRIMARY KEY (`Provincia_ID`);
+
+--
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`Rol_ID`);
+
+--
+-- Indices de la tabla `tipo_identificacion`
+--
+ALTER TABLE `tipo_identificacion`
+  ADD PRIMARY KEY (`Tipo_Identificacion_ID`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`Usuario_ID`),
+  ADD KEY `FK_Rol` (`Rol_ID`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `cantones`
+--
+ALTER TABLE `cantones`
+  MODIFY `Canton_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `distritos`
+--
+ALTER TABLE `distritos`
+  MODIFY `Distrito_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `provincias`
+--
+ALTER TABLE `provincias`
+  MODIFY `Provincia_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `Rol_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `tipo_identificacion`
+--
+ALTER TABLE `tipo_identificacion`
+  MODIFY `Tipo_Identificacion_ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `Usuario_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `cantones`
+--
+ALTER TABLE `cantones`
+  ADD CONSTRAINT `FK_Provincia` FOREIGN KEY (`Provincia_ID`) REFERENCES `provincias` (`Provincia_ID`);
+
+--
+-- Filtros para la tabla `distritos`
+--
+ALTER TABLE `distritos`
+  ADD CONSTRAINT `FK_Canton` FOREIGN KEY (`Canton_ID`) REFERENCES `cantones` (`Canton_ID`);
+
+--
+-- Filtros para la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `FK_Rol` FOREIGN KEY (`Rol_ID`) REFERENCES `roles` (`Rol_ID`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

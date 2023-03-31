@@ -11,10 +11,10 @@ include_once 'General.php';
   <meta name="keywords" content="Solicitud de matenimiento">
   <meta name="description" content="">
   <title>Acerca de</title>
-  <link rel="stylesheet" href="dist/css/niceSolicitud.css" media="screen">
-  <link rel="stylesheet" href="dist/css/Solicitud.css" media="screen">
-  <script class="u-script" type="text/javascript" src="dist/js/Solicitud.js" defer=""></script>
-  <script class="u-script" type="text/javascript" src="dist/js/niceSolicitud.js" defer=""></script>
+  <link rel="stylesheet" href="css/niceSolicitud.css" media="screen">
+  <link rel="stylesheet" href="css/Solicitud.css" media="screen">
+  <script class="u-script" type="text/javascript" src="../js/Solicitud.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="../js/niceSolicitud.js" defer=""></script>
   <meta name="generator" content="Nicepage 5.6.16, nicepage.com">
   <meta name="referrer" content="origin">
   <link id="u-theme-google-font" rel="stylesheet"
@@ -35,11 +35,6 @@ include_once 'General.php';
   <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/">
 </head>
-
-<?php
-
-StyleEx();
-?>
 
 
 
@@ -65,7 +60,7 @@ StyleEx();
                     source="email" name="form">
                     <div class="u-form-group u-form-name u-label-none u-form-group-1">
                       <label for="name-30a4" class="u-form-control-hidden u-label" wfd-invisible="true"></label>
-                      <input type="text" placeholder="name" id="name-30a4" name="nombre"
+                      <input type="text" placeholder="nombre" id="name-30a4" name="nombre"
                         class="u-border-2 u-border-white u-input u-input-rectangle u-radius-50 u-input-1" required="">
                     </div>
 
@@ -108,10 +103,7 @@ StyleEx();
     </div>
   </section>
 
-  <?php
-  Footer();
-  ?>
-
+ 
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

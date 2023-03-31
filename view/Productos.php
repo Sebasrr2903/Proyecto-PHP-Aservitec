@@ -1,6 +1,8 @@
 <?php
 include_once 'General.php';
 
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +35,12 @@ include_once 'General.php';
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <?php
 
-StyleEx();
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
     $(document).ready(function() {
       $.ajax({
-        url: "../controllers/ProductosController.php", 
+        url: "../controller/ProductosController.php", 
         type: "POST",
         dataType:"JSON",
         success: function(resultado) {
@@ -91,7 +92,7 @@ StyleEx();
   ?>
 <div class="u-align-center u-clearfix u-container-align-center u-gradient u-section-1"></br>
 
-<div class="container" >
+<div class="u-align-center u-clearfix u-container-align-center u-gradient u-section-1" >
     <h1 class="u-align-center u-text u-text-body-alt-color u-text-default u-text-1">Productos</h1>
     <div id="product-list" class="row"></div>
   </div>

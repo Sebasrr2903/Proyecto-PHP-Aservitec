@@ -1,5 +1,6 @@
 <?php
-   $cn= mysqli_connect("localhost", "admin", "Palomo1995.", "aservitecdb");
+include_once '../Config/global.php';
+   $cn= mysqli_connect(ASERVITEC_PRE_DB_HOST_MYSQL, ASERVITEC_PRE_DB_USER_MYSQL, ASERVITEC_PRE_DB_PASSWORD_MYSQL, ASERVITEC_PRE_DB_NAME_MYSQL);
    if (!$cn) {
     die("Connection failed: " . mysqli_connect_error());
     }
