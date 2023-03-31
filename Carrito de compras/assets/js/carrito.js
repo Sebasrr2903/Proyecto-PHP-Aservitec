@@ -186,18 +186,18 @@ class Carrito{
 
     calcularTotal(){
         let productoLS;
-        let total = 0, subtotal = 0, igv = 0;
+        let total = 0, subtotal = 0, iva = 0;
         productoLS = this.obtenerProductosLocalStorage();
         for(let i = 0; i < productoLS.length; i++){
             let element = Number(productoLS[i].precio*productoLS[i].cantidad);
             total = total + element;
         }
-        igv = parseFloat(total * 0.18).toFixed(2);
+        iva = parseFloat(total * 0.13).toFixed(2);
         subtotal = parseFloat(total-igv).toFixed(2);
 
-        document.getElementById('subtotal').innerHTML = "S/. " + subtotal;
-        document.getElementById('igv').innerHTML = "S/. " + igv;
-        document.getElementById('total').value = "S/. " + total.toFixed(2);
+        document.getElementById('subtotal').innerHTML = " " + subtotal;
+        document.getElementById('igv').innerHTML = " " + iva;
+        document.getElementById('total').value = " " + total.toFixed(2);
     }
 
 }
