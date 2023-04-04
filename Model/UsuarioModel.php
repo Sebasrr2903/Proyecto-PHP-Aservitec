@@ -4,7 +4,7 @@ include_once '../Config/conexion.php';
 if(isset($_SESSION['Rol_ID'])){
     switch($_SESSION['Rol_ID']){
         case 1:
-            header('location: ../view/IndexAdmin.php');
+            header('location: ../view/indexAdmin.php');
         break;
 
         case 2:
@@ -33,12 +33,16 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         $_SESSION['Rol_ID'] = $rol;
         switch($rol){
             case 1:
-                header('location: ../view/IndexAdmin.php');
+                header('location: ../view/indexAdmin.php');
             break;
 
             case 2:
-                header('location: ../view/IndexUsua.php');
+                header('location: ../view/indexUsua.php');
             break;
+
+            case 3:
+                header('location: ../view/indexTecno.php');
+
 
             default:
         }
@@ -55,9 +59,9 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 function ListarUsuariosModel()
 {
     
-    $conex = new Database();
+    $conex = new conexion ();
   
-    $getConection = $conex->Connect();
+    $getConection = $conex->conectar();
   
     $stmt = $getConection->prepare("SELECT *FROM usuarios");
     $stmt->execute();

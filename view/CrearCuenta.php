@@ -1,18 +1,39 @@
+<?php
+include_once 'generales.php';
+
+?>
+
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Formulario de Registro Usuario</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="css/Registro.css">
-    </head>
-    <body>
-        <div class="banner">
-            <a href="../index.php"><img class="logo" src="img/wecare_logo (2).png"/><a>
-        </div>
+<html lang="en">
+
+<head>
+    <title>Aservitec- Crear Cuenta</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templatemo.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+
+    <!-- Load map styles -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+<!--
+    
+
+</head>
+
+<body>
+    <!-- Start Top Nav -->
+  <?php
+  NavbarN();
+  ?>
+   <hr>
+
         <div class="formulario">
             <form name="datos" method="post" class="was_validated">
                 <div id="details">
@@ -105,40 +126,24 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal fade" id="modalContra" tabindex="-1" aria-labelledby="Guardar" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header text-white banner" >
-                                <h5 class="modal-title">Establecer Contraseña</h5>
-                                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="contrasenna" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" name="contrasenna" required="true"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="Rcontrasenna" class="form-label">Repitir Contraseña</label>
-                                    <input type="password" class="form-control" name="Rcontrasenna" required="true"/>
-                                </div>
-                                <div class="modal-footer">
-                                <button class="btn btn-primary" type="sumit" name="guadar">
-                                    Listo
-                                </button>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" 
-        crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.4.js" 
-        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" 
-        crossorigin="anonymous"></script>
-        <script src='dist/js/Registro.js'></script>                                        
-    </body>
+                </div> 
+
+
+
+    <!-- Start Content Page -->
+  
+    <!-- End Contact -->
+
+
+    <!-- Start Footer -->
+   <?php footer();?>
+    <!-- End Footer -->
+
+    <!-- Start Script -->
+ <?php 
+  scripts();
+  ?>
+    <!-- End Script -->
+</body>
+
 </html>

@@ -1,44 +1,34 @@
 <?php
-include_once 'General.php';
-
-
-session_start();
-
-
-function closeSession(){
-	session_unset();
-	session_destroy();
-}
-
-
-
-
+include_once 'generales.php';
 
 ?>
 
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Proyecto web</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-		crossorigin="anonymous" referrerpolicy="no-referrer">
-	<link rel="stylesheet" href="css/index.css">
+    <title>Aservitec- Administrador</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templatemo.css">
+    <link rel="stylesheet" href="css/custom.css">
 
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+
+    <!-- Load map styles -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+<!--
+    
 
 </head>
 
-
-
 <body>
+<<<<<<< Updated upstream
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"><img src="img/ASERVITEC.png" alt="20%" width="30%">BIENVENIDO ADMINISTRADOR</a>
@@ -104,16 +94,42 @@ function closeSession(){
 			<span class="visually-hidden">Next</span>
 		</button>
 	</div>
+=======
+    <!-- Start Top Nav -->
+  <?php
+  NavbarAdmin();
+  ?>
+    <section class="bg-success py-5" >
+        <div class="container">
+            <div class="row align-items-center py-5">
+                <div class="col-md-8 text-white">
+                    <h1>Administrador</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="img/Arsevitec_logo.png" alt="About Hero">
+                </div>
+            </div>
+        </div>
+    </section>
+>>>>>>> Stashed changes
 
 
 
 
-	
+    <!-- Start Footer -->
+   <?php footer();?>
+    <!-- End Footer -->
 
+    <!-- Start Script -->
+ <?php 
+  scripts();
+  ?>
+    <!-- End Script -->
 </body>
-
-<?php
-Scripts()
-	?>
 
 </html>

@@ -8,7 +8,7 @@ include_once 'generales.php';
 <html lang="en">
 
 <head>
-    <title>Aservitec- Crear Cuenta</title>
+    <title>Aservitec- Tecnico</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -30,8 +30,9 @@ include_once 'generales.php';
 <body>
     <!-- Start Top Nav -->
   <?php
-  NavbarUsua();
+  NavbarTecno();
   ?>
+   
    <section class="bg-success py-5" >
         <div class="container">
             <div class="row align-items-center py-5">
@@ -49,10 +50,7 @@ include_once 'generales.php';
             </div>
         </div>
     </section>
-      
-    <!-- Start Content Page -->
-  
-    <!-- End Contact -->
+    
 
 
     <!-- Start Footer -->
