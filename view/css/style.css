@@ -1,10 +1,10 @@
 
 
 .button{
-    background:#800000;
+    background:#000000;
     text-decoration: none;
     padding: 15px;
-    margin-top: 300px;
+    margin-top: 30px;
     border-radius: 5px;
     color:  #f2f2f2;
     font-weight: 700;
@@ -162,7 +162,7 @@ main{
     width: 50px;
     height: 50px;
     line-height: 50px;
-    background:#800000;
+    background:#030303;
     font-size: 2em;
     text-align: center;
     border-radius: 50%;
@@ -261,7 +261,7 @@ main{
    
     width: 800px;
     margin:auto;
-    background: rgba(1,0,0,0.4);	
+    background-color: #800000 ;	
     padding: 10px 20px;
     box-sizing: border-box;
     margin-top: 20px;
@@ -270,7 +270,7 @@ main{
 .container-contacto form h2{
     color: #f2f2f2;
     text-align: center;
-    margin:0;
+    margin:50px;
     font-size: 30px;
     margin-bottom: 20px;
     font-weight: 600;

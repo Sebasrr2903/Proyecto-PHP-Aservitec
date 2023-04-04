@@ -208,7 +208,7 @@ a:hover {
 }
 
 a:not([href]):not([class]),a:not([href]):not([class]):hover {
-    color: inherit;
+    color: white;
     text-decoration: none
 }
 
@@ -1841,7 +1841,7 @@ progress {
     margin-bottom: 1rem;
     color: #212529;
     vertical-align: top;
-    border-color: #dee2e6
+    border-color: #000000
 }
 
 .table>:not(caption)>*>* {
@@ -1860,6 +1860,7 @@ progress {
 }
 
 .table>:not(:last-child)>:last-child>* {
+    color: white;
     border-bottom-color: currentColor
 }
 

@@ -142,7 +142,7 @@ function NavbarAdmin(){
                         <a class="nav-link" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="sobre.html">Productos</a>
+                    <a class="nav-link" href="productCrud.html">Productos</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="sobre.html">Solicitud de Matenimiento</a>
@@ -293,7 +293,7 @@ function NavbarTecno(){
                         <a class="nav-link" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="sobre.html">Solicitud de Matenimiento</a>
+                    <a class="nav-link" href="listasSolicitud.php">Listas de Matenimiento</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
@@ -321,11 +321,7 @@ function NavbarTecno(){
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
                 </a>
                 <a class="nav-icon position-relative text-decoration-none" href="#">
-                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i> Carrito
-                    
-                </a>
-                <a class="nav-icon position-relative text-decoration-none" href="#">
-                    <i class="fa fa-fw fa-user text-dark mr-3"></i> Iniciar Sesion
+                    <i class="fa fa-fw fa-user text-dark mr-3"></i> Cerrar Sesion
                     
                 </a>
                 
