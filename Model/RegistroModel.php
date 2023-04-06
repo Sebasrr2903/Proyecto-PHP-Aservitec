@@ -26,6 +26,21 @@ class RegistroModel extends conexion
             return $error; 
         }
     }
+    public static function mostrarID_Tipo($tipo){
+        $query="SELECT Tipo_Identificacion_ID FROM tipo_Identificacion WHERE Tipo=:tipo";
+        try{
+            self::getConexion();
+            $resultado=self::$cnx->prepare($query);
+            $resultado->bindParam(":tipo",$tipo,PDO::PARAM_STR);
+            $resultado->execute();
+            self::desconectar();
+            return $resultado->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
+    }
     public static function mostrarProvincia(){
         $query="SELECT Nombre FROM Provincias";
         try{
@@ -97,6 +112,24 @@ class RegistroModel extends conexion
             self::getConexion();
             $resultado=self::$cnx->prepare($query);
             $resultado->bindParam(":numero",$numero,PDO::PARAM_INT);
+            $resultado->execute();
+            self::desconectar();
+            return $resultado->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
+    }
+    public static function mostrarID_Distrito($nombre,$id){
+        $query="SELECT Distrito_ID FROM distritos WHERE Nombre=:distrito AND Canton_ID=:canton";
+        $distrito=$nombre;
+        $canton=$id;
+        try{
+            self::getConexion();
+            $resultado=self::$cnx->prepare($query);
+            $resultado->bindParam(":distrito",$distrito,PDO::PARAM_STR);
+            $resultado->bindParam(":canton",$canton,PDO::PARAM_INT);
             $resultado->execute();
             self::desconectar();
             return $resultado->fetchAll(PDO::FETCH_ASSOC);

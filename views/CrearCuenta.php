@@ -14,7 +14,7 @@
             <a href="../index.php"><img class="logo" src="dist/img/wecare_logo (2).png"/><a>
         </div>
         <div class="formulario">
-            <form name="datos" method="post" class="was_validated">
+            <form id="datos" method="post">
                 <div id="details">
                     <div class="container">
                         <div class="row">
@@ -44,7 +44,7 @@
                                         <br>
                                         <div class="form-group">
                                             <label for="correo" class="form-label">Correo</label>
-                                            <input type="email" class="form-control" name="correo" required="true"/>
+                                            <input type="email" class="form-control" name="correo" id="correo" required="true"/>
                                         </div>
                                         <br>
                                         <div class="form-group">
@@ -90,7 +90,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="d-grid col-md-2 mx-auto">
-                                <a class="btn btn-secondary btn-block">
+                                <a class="btn btn-secondary btn-block" href="InicioSesion.php">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                                     </svg> Regresar
@@ -116,14 +116,14 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="contrasenna" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" name="contrasenna" required="true"/>
+                                    <input type="password" class="form-control" name="pass" id="pass" required="true"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="Rcontrasenna" class="form-label">Repitir Contraseña</label>
-                                    <input type="password" class="form-control" name="Rcontrasenna" required="true"/>
+                                    <input type="password" class="form-control" name="pass2" id="pass2" required="true"/>
                                 </div>
                                 <div class="modal-footer">
-                                <button class="btn btn-primary" type="sumit" name="guadar">
+                                <button class="btn btn-primary" type="submit" name="guadar">
                                     Listo
                                 </button>
                                 </div> 
@@ -139,6 +139,7 @@
         <script src="https://code.jquery.com/jquery-3.6.4.js" 
         integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" 
         crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src='dist/js/Registro.js'></script>                                        
     </body>
 </html>

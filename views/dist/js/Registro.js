@@ -31,6 +31,7 @@ function cambiarProvincia(valor){
             $("#Canton").html(res); });
     }
 }
+
 function cambiarCanton(x){
     if(x!=0){
         let provincia=document.getElementById("Provincia").value;
@@ -41,6 +42,89 @@ function cambiarCanton(x){
             $("#Distrito").html(res); });
     }
 }
-$('#datos').on('sumbit',function(event){
+
+const validaciones=(tipoid,provincia,canton,distrito,contra,contra2)=>{
+    var valido="valido";
+    if(tipoid==0||provincia==0||canton==0||distrito==0){
+        valido="campos";
+    }
+    if(contra.length<8){
+        valido="largo";
+    }
+    if(contra!=contra2){
+        valido="contra";
+    }
+    return valido;
+}
+
+$('#datos').on('submit', function(event){
     event.preventDefault();
-})
+    tipoid=$('#TipoId').val();
+    provincia=$('#Provincia').val();
+    canton=$('#Canton').val();
+    distrito=$('#Distrito').val();
+    contra=$('#pass').val();
+    contra2=$('#pass2').val();
+    correo=$('#correo').val();
+    valido=validaciones(tipoid,provincia,canton,distrito,contra,contra2);
+    var formData = new FormData(document.getElementById("datos"));
+    if(valido=="valido"){
+        $.post(
+            '../controllers/UsuarioController.php/?op=validar',{email:correo},
+            async function(data,textStatus,xhr){
+                if(data !='null'){
+                    switch(data){
+                        case '1':
+                            Swal.fire({
+                                title:'Error!',
+                                text:'Usuario ya existe',
+                                icon:'error',
+                                confirmButtonText:'Entendido',
+                            });
+                            break;
+                    }
+                }else{
+                    $.ajax({
+                        url: '../controllers/UsuarioController.php/?op=insertar',
+                        type:"post",
+                        dataType:"html",
+                        data:formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false    
+                    });
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Usuario Creado',
+                        timer: 3500,
+                        showConfirmButton: false
+                    });
+                    setTimeout("location.href='../views/InicioSesion.php'", 3000);
+                }
+            }
+        );
+    }else{
+        if(valido=="campos"){
+            Swal.fire({
+                title:'Error!',
+                text:'Todos los campos deben estar llenos',
+                icon:'error',
+                confirmButtonText:'Entendido',
+            });
+        }else if(valido=="contra"){
+            Swal.fire({
+                title:'Error!',
+                text:'Las contraseñas no coinciden',
+                icon:'error',
+                confirmButtonText:'Entendido',
+            });
+        }else if(valido=="largo"){
+            Swal.fire({
+                title:'Error!',
+                text:'La contraseña debe ser de mas de 8 digitos',
+                icon:'error',
+                confirmButtonText:'Entendido',
+            });
+        }
+    }
+});
