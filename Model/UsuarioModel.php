@@ -73,8 +73,6 @@ class User extends conexion
     }
 }
 
-
-
 if(isset($_SESSION['Rol_ID'])){
     switch($_SESSION['Rol_ID']){
         case 1:
@@ -90,20 +88,21 @@ if(isset($_SESSION['Rol_ID'])){
     }
 }
 
-
 if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
-    $password = $_POST['password'];
-
+    $password = $_POST["password"];
+    $aux=false;
     $db = new Conexion();
-    $query = $db->conectar()->prepare('SELECT *FROM usuarios WHERE username = :username AND password = :password');
-    $query->execute(['username' => $username, 'password' => $password]);
-
+    $query = $db->conectar()->prepare('SELECT * FROM usuarios WHERE username = :username');
+    $query->execute(['username' => $username]);
     $row = $query->fetch(PDO::FETCH_NUM);
-    
-    if($row == true){
-        $rol = $row[3];
-        
+    $contra=$row[2];
+    $rol_usu=$row[3];
+    if(password_verify($password,$contra)){
+        $aux=true;
+    }
+    if($aux == true){
+        $rol = $rol_usu;
         $_SESSION['Rol_ID'] = $rol;
         switch($rol){
             case 1:
@@ -113,17 +112,12 @@ if(isset($_POST['username']) && isset($_POST['password'])){
             case 2:
                 header('location: ../view/IndexUsua.php');
             break;
-
             default:
         }
     }else{
         // no existe el usuario
         header("location:InicioSesion.php?error=El usuario esta incorrecto o contraseña incorrecta");
-     
-        
     }
-    
-
 }
 
 function ListarUsuariosModel()

@@ -104,8 +104,26 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`Usuario_ID`, `username`, `password`, `Rol_ID`) VALUES
-(1, 'Administrador', '1234', 1),
-(2, 'Colaborador', '1234', 2);
+(1, 'Administrador', '$2y$10$jKYhoMKwVfYdxUzc5W7Ke.Ikft.7RRyyJKFYSeVi2nkN9.DKqknFC', 1),
+(2, 'Colaborador', '$2y$10$jKYhoMKwVfYdxUzc5W7Ke.Ikft.7RRyyJKFYSeVi2nkN9.DKqknFC', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `datos_usuario`(
+	`Identificacion` VARCHAR(15) NOT NULL,
+  `Tipo_Identificacion_ID` INT NOT NULL,
+	`Nombre` VARCHAR(100) NOT NULL,
+  `Correo` VARCHAR(20) NOT NULL,
+  `Telefono` VARCHAR(15) NOT NULL,
+	`Provincia_ID` INT NOT NULL,
+	`Canton_ID` INT NOT NULL,
+  `Distrito_ID` INT NOT NULL,
+	`Direccion_Exacta` VARCHAR(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tablas volcadas
@@ -149,6 +167,16 @@ ALTER TABLE `tipo_identificacion`
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`Usuario_ID`),
   ADD KEY `FK_Rol` (`Rol_ID`);
+  
+--
+-- Indices de la tabla `datos_usuario`
+--
+ALTER TABLE `datos_usuario`
+  ADD PRIMARY KEY (`Identificacion`),
+  ADD KEY `FK_TipoId` (`Tipo_Identificacion_ID`),
+  ADD KEY `FK_Provincia_u` (`Provincia_ID`),
+  ADD KEY `FK_Canton_u` (`Canton_ID`),
+  ADD KEY `FK_Distrito_u` (`Distrito_ID`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -211,7 +239,23 @@ ALTER TABLE `distritos`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `FK_Rol` FOREIGN KEY (`Rol_ID`) REFERENCES `roles` (`Rol_ID`);
+
+--
+-- Filtros para la tabla `datos_usuarios`
+--
+ALTER TABLE `datos_usuario`
+  ADD CONSTRAINT `FK_TipoId` FOREIGN KEY (`Tipo_Identificacion_ID`) REFERENCES `tipo_identificacion` (`Tipo_Identificacion_ID`),
+  ADD CONSTRAINT `FK_Provincia_u` FOREIGN KEY (`Provincia_ID`) REFERENCES `provincias` (`Provincia_ID`),
+  ADD CONSTRAINT `FK_Canton_u` FOREIGN KEY (`Canton_ID`) REFERENCES `cantones` (`Canton_ID`),
+  ADD CONSTRAINT `FK_Distrito_u` FOREIGN KEY (`Distrito_ID`) REFERENCES `distritos` (`Distrito_ID`);
 COMMIT;
+
+--
+-- Volcado de datos para la tabla `tipo_identificacion`
+--
+
+INSERT INTO `tipo_identificacion`(`Tipo`) VALUES
+('Cedula de identificación'),('Identificación extranjera');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
