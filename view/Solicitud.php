@@ -60,7 +60,7 @@ include_once 'generales.php';
     <!-- End Footer -->
 
     <!-- Start Script -->
- <?php 
+    <?php 
   scripts();
   ?>
     <!-- End Script -->

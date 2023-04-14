@@ -1,11 +1,7 @@
 <?php
-
 include_once 'generales.php';
 include_once __DIR__ . '/../Model/UsuarioModel.php';
-
 session_start();
-
-
 ?>
 
 
@@ -30,8 +26,6 @@ session_start();
 		
 	
 		<form action="" method="POST">
-		
-
 			<h1>Inicio Sesión</h1>
 			<hr>
 			<?php
@@ -40,12 +34,10 @@ session_start();
 				<p class="erro"></p>
 				<?php
 				echo $_GET['error'];
-			
 		?>
 		<?php
 			}
 			?>
-			
 			<hr>
 			<i class="fa-solid fa-user"></i>
 			<label>Usuario</label>
@@ -59,7 +51,6 @@ session_start();
 				" value="Ingresar" name="btnIngresar">Iniciar Sesión</button>
 			<a href="crearCuenta.php">Crear Cuenta</a>
 		</form>
-		
 	</body>
 
 </html>
