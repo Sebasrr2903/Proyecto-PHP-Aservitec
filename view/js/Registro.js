@@ -128,3 +128,12 @@ $('#datos').on('submit', function(event){
         }
     }
 });
+
+function cerrar(){
+    $.get
+    '../Controller/UsuarioController.php/?op=cerrar';
+    location.href='../Index.html';
+}
+
+
+
