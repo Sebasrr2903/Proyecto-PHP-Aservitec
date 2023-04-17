@@ -131,14 +131,18 @@ function NavbarAdmin(){
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Usuarios</a>
+                    <ul class="dropdown-menu">    
+                        <li><a class="dropdown-item" href="../view/CrearCuentaAdmin.php">Crear usuario</a>
+                        <li><a class="dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="#modalID">Editar Usuario</a><li>
+                    </ul>
                     </li>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Productos</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="AgregraProducto.php">Agregar Producto</a></li>
-                        <li><a class="dropdown-item" href="ListaProducto.php">Lista de Productos</a></li>
+                        <li><a class="dropdown-item" href="../view/AgregraProducto.php">Agregar Producto</a></li>
+                        <li><a class="dropdown-item" href="../view/ListaProducto.php">Lista de Productos</a></li>
                     </ul>
                     </li>
                     <li class="nav-item">
@@ -153,7 +157,29 @@ function NavbarAdmin(){
             </div>
         </div>
     </div>
-</nav>';
+</nav>
+<div class="modal fade" id="modalID" tabindex="-1" aria-labelledby="Consultar" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-white" style="background-color: #630909;">
+                <h5 class="modal-title">Editar Usuario</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="cedula" method="post">
+                    <div class="form-group">
+                        <label for="ID" class="form-label">Ingrese la Identificación del usuario a editar:</label>
+                        <input type="text" class="form-control" name="ID" id="ID" required="true"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button class="btn btn-primary" type="submit" name="editar">Editar</button>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>';
 }
 
 function NavbarUsua(){

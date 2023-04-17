@@ -40,5 +40,13 @@ switch($_GET["op"]){
         foreach($resultado3 as $row){
             echo "<option>".$row['Nombre']."</option>";
         }
+        break;
+    case 'llenarRol':
+        $resultado=RegistroModel::mostrarRol();
+        echo "<option selected value='0'>--- Seleccione el Rol ---</option>";
+        foreach($resultado as $row){
+            echo "<option value='".$row["Rol_ID"]."'>".$row['Nombre']."</option>";
+        }
+        break;
 }
 ?>

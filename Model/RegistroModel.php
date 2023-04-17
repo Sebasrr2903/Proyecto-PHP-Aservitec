@@ -26,6 +26,20 @@ class RegistroModel extends conexion
             return $error; 
         }
     }
+    public static function mostrarRol(){
+        $query="SELECT * FROM roles";
+        try{
+            self::getConexion();
+            $resultado=self::$cnx->prepare($query);
+            $resultado->execute();
+            self::desconectar();
+            return $resultado->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
+    }
     public static function mostrarID_Tipo($tipo){
         $query="SELECT Tipo_Identificacion_ID FROM tipo_Identificacion WHERE Tipo=:tipo";
         try{

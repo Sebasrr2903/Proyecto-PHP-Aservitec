@@ -70,6 +70,21 @@ class User extends conexion
             return $error; 
         }
     }
+    public static function consultar($id){
+        $query="SELECT * FROM datos_usuario WHERE Identificacion=:id";
+        try{
+            self::getConexion();
+            $resultado=self::$cnx->prepare($query);
+            $resultado->bindParam(":id",$id,PDO::PARAM_STR);
+            $resultado->execute();
+            self::desconectar();
+            return $resultado->fetch();
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
+    }
 }
 
 if(isset($_SESSION['Rol_ID'])){

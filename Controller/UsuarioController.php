@@ -1,6 +1,7 @@
 <?php
 include_once '../Model/UsuarioModel.php';
 include_once '../Model/RegistroModel.php';
+session_start();
 switch($_GET["op"]){
     case "validar":
         $correo=$_POST["email"];
@@ -13,7 +14,11 @@ switch($_GET["op"]){
         break;
     case "insertar":
         $pass=password_hash($_POST["pass"],PASSWORD_BCRYPT);
-        User::insertar($_POST["correo"],$pass,2);
+        if($_POST["Rol"]){
+            User::insertar($_POST["correo"],$pass,$_POST["Rol"]);
+        }else{
+            User::insertar($_POST["correo"],$pass,2);
+        }
         $resultado=RegistroModel::mostrarID_Tipo($_POST["TipoId"]);
         foreach($resultado as $row){
             $tipoID=$row["Tipo_Identificacion_ID"];
@@ -36,6 +41,13 @@ switch($_GET["op"]){
     case "cerrar":
         session_destroy();
         break;
+    case "consultar":
+        $resultado=User::consultar($_POST["ID"]);
+        if($resultado!=null){
+            $_SESSION["id"]=$_POST["ID"];
+        }else{
+            echo 'null';
+        }
 }
 
 
