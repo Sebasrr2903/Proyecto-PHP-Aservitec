@@ -1,42 +1,39 @@
 <?php
-include_once 'General.php';
-
-session_start();
+include_once 'generales.php';
 
 ?>
+
 
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="es"><head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+
+<head>
+    <title>Aservitec- Contactatenos</title>
     <meta charset="utf-8">
-    <meta name="keywords" content="Contactenos">
-    <meta name="description" content="">
-    <title>Contacto</title>
-    <link rel="stylesheet" href="dist/css/niceContactenos.css" media="screen">
-    <link rel="stylesheet" href="dist/css/Contacto.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-    <meta name="generator" content="Nicepage 5.6.16, nicepage.com">
-    <meta name="referrer" content="origin">
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    <?php
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  links();
-  ?>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templatemo.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+
+    <!-- Load map styles -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+<!--
     
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": ""
-}</script>
-    <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Contacto">
-    <meta property="og:type" content="website">
-  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <?php
 
-?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- Start Top Nav -->
+  <?php
+  NavbarN();
+  ?>
+   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
     $(document).ready(function() {
       $.ajax({
@@ -81,26 +78,15 @@ session_start();
         });
       }
   </script>
-  
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <body class="u-body u-xl-mode" data-lang="es">
+    <!-- Start Footer -->
+   <?php footer();?>
+    <!-- End Footer -->
 
-
-<?php
-  navbar();
+    <!-- Start Script -->
+ <?php 
+  scripts();
   ?>
-<div class="u-align-center u-clearfix u-container-align-center u-gradient u-section-1"></br>
+    <!-- End Script -->
+</body>
 
-<div class="u-align-center u-clearfix u-container-align-center u-gradient u-section-1" >
-    <h1 class="u-align-center u-text u-text-body-alt-color u-text-default u-text-1">Productos</h1>
-    <div id="product-list" class="row"></div>
-  </div>
-  </div>
-   <?php
-  Footer();
-  ?>
-
-  
-   
-  </body>
+</html>
