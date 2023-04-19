@@ -33,6 +33,9 @@ switch($_GET["op"]){
         User::insertar_datos($_POST["Identificacion"],$tipoID,$_POST["nombre"],
         $_POST["correo"],$_POST["telefono"],$idProvincia,$idCanton,$idDistrito,$_POST["direccion"]);
         break;
+    case "cerrar":
+        session_destroy();
+        break;
 }
 
 

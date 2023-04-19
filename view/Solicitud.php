@@ -1,6 +1,5 @@
 <?php
 include_once 'generales.php';
-
 ?>
 
 
@@ -37,18 +36,14 @@ include_once 'generales.php';
 
     <div class="container-contacto">
   <form action="#" id="form" method="POST">
-    <h2>Solicitud de Matenimmiento</h2>
+    <h2>Solicitud de Mantenimiento</h2>
     <br>
-    <input type="text" name="cliente" id="nombre" placeholder="Ingrese su Nombre" onkeypress="return sololetras(event)" onpaste="return false" required>
-    <input type="text" name="correo" id="correo" placeholder="Ingrese su Correo" required>
-    <a>Fecha Creacion</a>
-    <input type="date" name="fecha_creacion" id="fecha_creacion" placeholder="Ingrese la fecha de creacion" required>
-    <a>Fecha Atencion</a>
-    <input type="date" name="fecha_atencion" id="fecha_atencion" placeholder="Ingrese la fecha de atencion" required>
-
-    <input type="text" name="celular" id="celular" placeholder="Ingrese su Celular" onkeypress="return solonumeros(event)" onpaste="return false" required>
-    <textarea name="descripcion" placeholder="Escriba su Mensaje" required></textarea>
-    <input type="submit" id="button-contacto" value="ENVIAR" class="button" onclick="validarCorreo(form.correo.value)">
+    <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" onkeypress="return sololetras(event)" onpaste="return false" required>
+    <input type="text" name="apellidos" id="apellidos" placeholder="Ingrese su apellido" required>
+    <input type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" required>
+    <input type="telephone" name="telefono" id="telefono" placeholder="Ingrese su telefono" required>
+    <textarea name="descripcion" id="descripcion" placeholder="Escriba la descripcion de la Atencion" required></textarea>
+    <input type="submit" id="btnGuardar" name="btnGuardar"value="Guadar" class="button" >
   </form>
   </div>
 
@@ -60,7 +55,7 @@ include_once 'generales.php';
     <!-- End Footer -->
 
     <!-- Start Script -->
-    <?php 
+ <?php 
   scripts();
   ?>
     <!-- End Script -->

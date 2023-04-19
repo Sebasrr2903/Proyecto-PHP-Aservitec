@@ -110,7 +110,7 @@ INSERT INTO `usuarios` (`Usuario_ID`, `username`, `password`, `Rol_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `datos_usuarios`
 --
 
 CREATE TABLE `datos_usuario`(
@@ -123,6 +123,32 @@ CREATE TABLE `datos_usuario`(
 	`Canton_ID` INT NOT NULL,
   `Distrito_ID` INT NOT NULL,
 	`Direccion_Exacta` VARCHAR(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+    `id` INT(11) NOT NULL,
+    `nombre` VARCHAR(100) NOT NULL,
+    `cantidad` INT(11) NOT NULL,
+    `descripcion` VARCHAR(250) NOT NULL,
+    `imagen` VARCHAR(255) NOT NULL,
+    `precio` INT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+CREATE TABLE `mantenimiento` (
+    `id` INT(11) NOT NULL,
+    `nombre` VARCHAR(100) NOT NULL,
+    `apellidos` VARCHAR(100) NOT NULL,
+    `correo` VARCHAR(100) NOT NULL,
+    `telefono` INT(11) NOT NULL,
+    `descripcion` VARCHAR(250) NOT NULL
+   
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -178,6 +204,13 @@ ALTER TABLE `datos_usuario`
   ADD KEY `FK_Canton_u` (`Canton_ID`),
   ADD KEY `FK_Distrito_u` (`Distrito_ID`);
 
+
+
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id`);
+
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
@@ -217,6 +250,12 @@ ALTER TABLE `tipo_identificacion`
 --
 ALTER TABLE `usuarios`
   MODIFY `Usuario_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `productos`
+--
+ALTER TABLE `productos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

@@ -1,6 +1,5 @@
 <?php
 include_once '../Config/conexion.php';
-
 class User extends conexion
 {
     protected static $cnx;
@@ -82,9 +81,7 @@ if(isset($_SESSION['Rol_ID'])){
         case 2:
         header('location: ../index.php');
         break;
-
-       
-      default;
+    default;
     }
 }
 
@@ -104,32 +101,18 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     if($aux == true){
         $rol = $rol_usu;
         $_SESSION['Rol_ID'] = $rol;
+        $_SESSION['username']=$row[1];
         switch($rol){
             case 1:
-                header('location: ../view/IndexAdmin.php');
+                header('location: ../view/IndexAdmin.php?');
             break;
-
             case 2:
-                header('location: ../view/IndexUsua.php');
+                header('location: ../view/IndexTecno.php');
             break;
-            default:
+        default:
         }
     }else{
         // no existe el usuario
         header("location:InicioSesion.php?error=El usuario esta incorrecto o contraseña incorrecta");
     }
-}
-
-function ListarUsuariosModel()
-{
-    
-    $conex = new Database();
-  
-    $getConection = $conex->Connect();
-  
-    $stmt = $getConection->prepare("SELECT *FROM usuarios");
-    $stmt->execute();
-  
-    return $stmt;
-    
 }

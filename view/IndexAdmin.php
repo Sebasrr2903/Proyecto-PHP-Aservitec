@@ -1,6 +1,5 @@
 <?php
 include_once 'generales.php';
-
 ?>
 
 
@@ -15,7 +14,6 @@ include_once 'generales.php';
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/templatemo.css">
     <link rel="stylesheet" href="css/custom.css">
-
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="css/fontawesome.min.css">
@@ -28,32 +26,24 @@ include_once 'generales.php';
 </head>
 
 <body>
-	
-  <?php
-  NavbarAdmin();
-  ?>
-    <section class="bg-success py-5" >
-        <div class="container">
-            <div class="row align-items-center py-5">
-                <div class="col-md-8 text-white">
-                    <h1>Administrador</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <img src="img/Arsevitec_logo.png" alt="About Hero">
-                </div>
+<?php NavbarAdmin();?>
+<section class="bg-success py-5" >
+    <div class="container">
+        <div class="row align-items-center py-5">
+            <div class="col-md-8 text-white">
+                <h1>Administrador</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <img src="img/Arsevitec_logo.png" alt="About Hero">
             </div>
         </div>
-    </section>
-
-
-
-
-
+    </div>
+</section>
     <!-- Start Footer -->
    <?php footer();?>
     <!-- End Footer -->

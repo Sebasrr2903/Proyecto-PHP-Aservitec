@@ -8,7 +8,7 @@ include_once 'generales.php';
 <html lang="en">
 
 <head>
-    <title>Aservitec - About Page</title>
+    <title>Zay Shop - About Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
