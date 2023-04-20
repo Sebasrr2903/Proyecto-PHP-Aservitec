@@ -1,10 +1,11 @@
 <?php
 include_once 'generales.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Aservitec- Agregar Producto</title>
+    <title>Aservitec- Editar Usuario</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -22,45 +23,22 @@ NavbarAdmin();
 ?>
 <hr>
 <div>
-    <form id="productos" method="post">
+    <form id="usuario" method="post">
         <div id="details">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Nuevo Producto</h4>
+                                <h4>Editar Usuario</h4>
                             </div>
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" name="nombre" required="true"/>
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="cantidad" class="form-label">Cantidad</label>
-                                    <input type="number" class="form-control" name="cantidad" required="true" min="1" value="1"/>
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="precio" class="form-label">Precio</label>
-                                    <input type="number" class="form-control" name="precio" required="true" min="5000" value="5000"/>
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="descripcion" class="form-label">Descripción</label>
-                                    <textarea name="descripcion" class="form-control" rows="3" required="true"></textarea>
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="imagen" class="form-label">Imagen</label>
-                                    <br>
-                                    <input type="file" id="imagen" name="imagen" required="true"/>
+                                <div id="editarUsuario">
                                 </div>
                             </div>
                         </div>
                     </div>
-                <div>
+                </div>
             </div>
         </div>
         <div id="actions" class="py-4 mb-4 bg-light">
@@ -88,5 +66,8 @@ NavbarAdmin();
 <?php 
 scripts();
 ?>
+<script>
+    actualizarUsuario(<?php echo $_SESSION["id"]?>);
+</script>
 </body>
-</html>    
+</html>
