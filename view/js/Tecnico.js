@@ -14,7 +14,7 @@ function listaTecnicoC(){
         $("#listaTecnicoC").html(res); });
 }
 
-function info(idMant,idTec,fecha){
+function infoTec(idMant,idTec,fecha){
     $.get(
         '../Controller/TecnicoController.php?op=info',{numero:idMant,id:idTec,date:fecha},{}
     )
@@ -22,7 +22,7 @@ function info(idMant,idTec,fecha){
         $("#infoCalendario").html(res); });
 }
 
-function calendario(idMant,idTec){
+function calendario(idMant,idTec,lista){
     var modalEvento;
     modalEvento=new bootstrap.Modal(document.getElementById('modalEvento'),{keyboard:false});
     document.addEventListener('DOMContentLoaded',function(){
@@ -37,8 +37,9 @@ function calendario(idMant,idTec){
             },
             dateClick:function(fecha){
                 modalEvento.show();
-                info(idMant,idTec,fecha.dateStr);
-            }
+                infoTec(idMant,idTec,fecha.dateStr);
+            },
+            events:lista
         });
         calendar.render();
     });
@@ -47,24 +48,12 @@ function calendario(idMant,idTec){
 function calendarioTecnico(idTec){
     $.get(
         '../Controller/TecnicoController.php?op=calendario',{id:idTec},{}
-    ).done(function(res){
-        if(res==1){
-            Swal.fire({
-                title:'Advertencia',
-                text:'El tecnico no tiene ningun trabajo asignado',
-                icon:'info',
-                confirmButtonText:'Entendido',
-            });
-        }else{
-            console.log(res);
-            //location.href='../view/CalendarioTecnico.php';
-        }
-    });
+    )
 }
 
 function calendarioTec(lista){
     document.addEventListener('DOMContentLoaded',function(){
-        var calendarEl=document.getElementById('calendarTec');
+        var calendarEl=document.getElementById('calendar');
         var calendar=new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
             locale:"es",
@@ -72,8 +61,6 @@ function calendarioTec(lista){
                 left:'prev,next today',
                 center:'title',
                 right:'dayGridMonth,timeGridWeek,timeGridDay'
-            },
-            dateClick:function(fecha){
             },
             events:lista
         });

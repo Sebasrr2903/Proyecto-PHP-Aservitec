@@ -24,11 +24,7 @@ NavbarAdmin();
 <hr>
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
-            <!--  Modal trigger button  -->
-            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalEvento">
-                Launch
-            </button>
+        <div class="col-md-1">
             <!-- Modal Body-->
             <div class="modal fade" id="modalEvento" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -56,11 +52,11 @@ NavbarAdmin();
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div id="calendar"></div>
             <br>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
         </div>
     </div>
 </div>
@@ -68,7 +64,8 @@ NavbarAdmin();
 scripts();
 ?>
 <script>
-    calendario(<?php echo $_SESSION["id_mant"]?>,<?php echo $_SESSION["idTecnico"]?>);
+    calendarioTecnico(<?php echo $_SESSION["idTecnico"]?>);
+    calendario(<?php echo $_SESSION["id_mant"]?>,<?php echo $_SESSION["idTecnico"]?>,<?php echo $_SESSION["lista"]?>);
 </script>
 </body>
 </html>

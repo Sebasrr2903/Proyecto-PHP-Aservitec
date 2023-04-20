@@ -58,6 +58,7 @@ function info(numero){
         '../Controller/ProductosController.php?op=info',{id:numero},{}
     )
     .done(function(res){
+        console.log(res);
         $("#cuerpo").html(res); });
 }
 
