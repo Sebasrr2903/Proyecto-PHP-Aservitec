@@ -6,13 +6,17 @@ function scripts(){
     <script src="js/custom.js"></script>
     <script src="js/Registro.js"></script>
     <script src="js/Producto.js"></script>
+    <script src="js/Usuario.js"></script>
+    <script src="js/Mantenimiento.js"></script>
+    <script src="js/Tecnico.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" 
     crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.js" 
     integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" 
     crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>';
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/index.global.min.js "></script>';
 }
 
 
@@ -40,7 +44,7 @@ function NavbarN(){
     
     <nav class="navbar navbar-expand-lg navbar-light shadow">
     <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+        <a class="navbar-brand text-success logo h1 align-self-center" href="../index.html">
         <img  src="img/Arsevitec_logo.png">
         </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,13 +54,13 @@ function NavbarN(){
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="view/index.html">Inicio</a>
+                        <a class="nav-link" href="../index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="view/shop.html">Productos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="sobre.html">Solicitud de Matenimiento</a>
+                    <a class="nav-link" href="../view/Solicitud.php">Solicitud de Matenimiento</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
@@ -105,9 +109,8 @@ function NavbarN(){
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
                 </a> 
                 </li>
-                <a class="nav-icon position-relative text-decoration-none" href="#">
+                <a class="nav-icon position-relative text-decoration-none" href="../view/InicioSesion.php">
                     <i class="fa fa-fw fa-user text-dark mr-3"></i> Iniciar Sesion
-                    
                 </a>
                 
             </div>
@@ -136,6 +139,7 @@ function NavbarAdmin(){
                     <ul class="dropdown-menu">    
                         <li><a class="dropdown-item" href="../view/CrearCuentaAdmin.php">Crear usuario</a>
                         <li><a class="dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="#modalID">Editar Usuario</a><li>
+                        <li><a class="dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="#modalEliminar">Eliminar Usuario</a><li>
                     </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -146,7 +150,10 @@ function NavbarAdmin(){
                     </ul>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="sobre.html">Solicitud de Matenimiento</a>
+                    <a class="nav-link" href="../view/ListaSolicitudes.php">Solicitudes de Matenimiento</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="../view/CalendarioTrabajo.php">Tecnicos</a>
                     </li>
                 </ul>
             </div>
@@ -174,6 +181,28 @@ function NavbarAdmin(){
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button class="btn btn-primary" type="submit" name="editar">Editar</button>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="Consultar" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-white" style="background-color: #630909;">
+                <h5 class="modal-title">Eliminar Usuario</h5>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="eliminar" method="post">
+                    <div class="form-group">
+                        <label for="ID" class="form-label">Ingrese la Identificación del usuario a eliminar:</label>
+                        <input type="text" class="form-control" name="ID" id="ID" required="true"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button class="btn btn-danger" type="submit" name="editar">Eliminar</button>
                     </div> 
                 </form>
             </div>

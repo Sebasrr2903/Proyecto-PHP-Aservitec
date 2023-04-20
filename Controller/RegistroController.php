@@ -5,40 +5,28 @@ switch($_GET["op"]){
         $resultado=RegistroModel::mostrarID();
         echo "<option selected value='0'>--- Seleccione el tipo de identicación ---</option>";
         foreach($resultado as $row){
-            echo "<option>".$row['Tipo']."</option>";
+            echo "<option value='".$row['Tipo_Identificacion_ID']."'>".$row['Tipo']."</option>";
         }
         break;
     case 'llenarProvincias':
         $resultado=RegistroModel::mostrarProvincia();
         echo "<option selected value='0'>--- Seleccione la provincia ---</option>";
         foreach($resultado as $row){
-            echo "<option>".$row['Nombre']."</option>";
+            echo "<option value='".$row['Provincia_ID']."'>".$row['Nombre']."</option>";
         }
         break;
     case 'CambioProvincia':
-        $resultado=RegistroModel::mostrarID_Provincia($_GET["name"]);
-        foreach($resultado as $row){
-            $id=$row["Provincia_ID"];
-        }
-        $resultado2=RegistroModel::mostrarCanton($id);
+        $resultado=RegistroModel::mostrarCanton($_GET["numero"]);
         echo "<option selected value='0'>--- Seleccione el canton ---</option>";
-        foreach($resultado2 as $row){
-            echo "<option>".$row['Nombre']."</option>";
+        foreach($resultado as $row){
+            echo "<option value='".$row['Canton_ID']."'>".$row['Nombre']."</option>";
         }
         break;
     case 'CambioCanton':
-        $resultado=RegistroModel::mostrarID_Provincia($_GET["id"]);
-        foreach($resultado as $row){
-            $id=$row["Provincia_ID"];
-        }
-        $resultado2=RegistroModel::mostrarID_Canton($_GET["name"],$id);
-        foreach($resultado2 as $row){
-            $id_canton=$row["Canton_ID"];
-        }
-        $resultado3=RegistroModel::mostrarDistrito($id_canton);
+        $resultado=RegistroModel::mostrarDistrito($_GET["numero"]);
         echo "<option selected value='0'>--- Seleccione el distrito ---</option>";
-        foreach($resultado3 as $row){
-            echo "<option>".$row['Nombre']."</option>";
+        foreach($resultado as $row){
+            echo "<option value='".$row['Distrito_ID']."'>".$row['Nombre']."</option>";
         }
         break;
     case 'llenarRol':

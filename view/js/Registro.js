@@ -37,7 +37,7 @@ function llenarProvincias(){
 function cambiarProvincia(valor){
     if(valor!=0){
         $.get(
-            '../Controller/RegistroController.php/?op=CambioProvincia',{name:valor},{}
+            '../Controller/RegistroController.php/?op=CambioProvincia',{numero:valor},{}
         )
         .done(function(res){
             $("#Canton").html(res); });
@@ -46,9 +46,8 @@ function cambiarProvincia(valor){
 
 function cambiarCanton(x){
     if(x!=0){
-        let provincia=document.getElementById("Provincia").value;
         $.get(
-            '../Controller/RegistroController.php/?op=CambioCanton',{name:x,id:provincia},{}
+            '../Controller/RegistroController.php/?op=CambioCanton',{numero:x},{}
         )
         .done(function(res){
             $("#Distrito").html(res); });
@@ -218,38 +217,6 @@ $('#datosAdmin').on('submit', function(event){
             });
         }
     }
-});
-
-function cerrar(){
-    $.get
-    '../Controller/UsuarioController.php/?op=cerrar';
-    location.href='../Index.html';
-}
-
-$('#cedula').on('submit', function(event){
-    event.preventDefault();
-    var formData = new FormData(document.getElementById("cedula"));
-    document.getElementById('ID').value = '';
-    $.ajax({
-        url: '../Controller/UsuarioController.php/?op=consultar',
-        type:"post",
-        dataType:"html",
-        data:formData,
-        cache: false,
-        contentType: false,
-        processData: false    
-    }).done(function(res){
-        if(res!='null'){
-            location.href='../view/EditarUsuario.php';
-        }else{
-            Swal.fire({
-                title:'Error!',
-                text:'Usuario no existe',
-                icon:'error',
-                confirmButtonText:'Entendido',
-            });  
-        }
-    });
 });
 
 
