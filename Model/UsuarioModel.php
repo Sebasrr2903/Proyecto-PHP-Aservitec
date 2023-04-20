@@ -22,7 +22,7 @@ class User extends conexion
             $resultado->bindParam(":username",$username,PDO::PARAM_STR);
             $resultado->execute();
             self::desconectar();
-            return $resultado->fetch();
+            return $resultado->fetchAll(PDO::FETCH_ASSOC);
         }catch (PDOException $e){
             self::desconectar();
             $error="Error ".$e->getCode().": ".$e->getMessage();
@@ -70,49 +70,146 @@ class User extends conexion
             return $error; 
         }
     }
-}
-
-if(isset($_SESSION['Rol_ID'])){
-    switch($_SESSION['Rol_ID']){
-        case 1:
-            header('location: ../view/IndexAdmin.php');
-        break;
-
-        case 2:
-        header('location: ../index.php');
-        break;
-    default;
-    }
-}
-
-if(isset($_POST['username']) && isset($_POST['password'])){
-    $username = $_POST['username'];
-    $password = $_POST["password"];
-    $aux=false;
-    $db = new Conexion();
-    $query = $db->conectar()->prepare('SELECT * FROM usuarios WHERE username = :username');
-    $query->execute(['username' => $username]);
-    $row = $query->fetch(PDO::FETCH_NUM);
-    $contra=$row[2];
-    $rol_usu=$row[3];
-    if(password_verify($password,$contra)){
-        $aux=true;
-    }
-    if($aux == true){
-        $rol = $rol_usu;
-        $_SESSION['Rol_ID'] = $rol;
-        $_SESSION['username']=$row[1];
-        switch($rol){
-            case 1:
-                header('location: ../view/IndexAdmin.php?');
-            break;
-            case 2:
-                header('location: ../view/IndexTecno.php');
-            break;
-        default:
+    public static function consultar($id){
+        $query="SELECT * FROM datos_usuario WHERE Identificacion=:id";
+        try{
+            self::getConexion();
+            $resultado=self::$cnx->prepare($query);
+            $resultado->bindParam(":id",$id,PDO::PARAM_STR);
+            $resultado->execute();
+            self::desconectar();
+            return $resultado->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
         }
-    }else{
-        // no existe el usuario
-        header("location:InicioSesion.php?error=El usuario esta incorrecto o contraseña incorrecta");
+    }
+    public static function mostrarRol($rol){
+        $query="SELECT Nombre FROM roles WHERE Rol_ID=:id";
+        try{
+            self::getConexion();
+            $resultado=self::$cnx->prepare($query);
+            $resultado->bindParam(":id",$rol,PDO::PARAM_INT);
+            $resultado->execute();
+            self::desconectar();
+            return $resultado->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
+    }
+    public static function mostrarProvincia($id){
+        $query="SELECT Nombre FROM provincias WHERE Provincia_ID=:id";
+        try{
+            self::getConexion();
+            $resultado=self::$cnx->prepare($query);
+            $resultado->bindParam(":id",$id,PDO::PARAM_INT);
+            $resultado->execute();
+            self::desconectar();
+            return $resultado->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
+    }
+    public static function mostrarCanton($id){
+        $query="SELECT Nombre FROM cantones WHERE Canton_ID=:id";
+        try{
+            self::getConexion();
+            $resultado=self::$cnx->prepare($query);
+            $resultado->bindParam(":id",$id,PDO::PARAM_INT);
+            $resultado->execute();
+            self::desconectar();
+            return $resultado->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
+    }
+    public static function mostrarDistrito($id){
+        $query="SELECT Nombre FROM distritos WHERE Distrito_ID=:id";
+        try{
+            self::getConexion();
+            $resultado=self::$cnx->prepare($query);
+            $resultado->bindParam(":id",$id,PDO::PARAM_INT);
+            $resultado->execute();
+            self::desconectar();
+            return $resultado->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
+    }
+    public static function actualizar($correo,$rol,$id){
+        $query="UPDATE usuarios SET username=:correo,Rol_ID=:rol WHERE Usuario_ID=:id";
+        try{
+            self::getConexion();
+            $update=self::$cnx->prepare($query);
+            $update->bindParam(":correo",$correo,PDO::PARAM_STR);
+            $update->bindParam(":rol",$rol,PDO::PARAM_INT);
+            $update->bindParam(":id",$id,PDO::PARAM_INT);
+            $update->execute();
+            self::desconectar();
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
+    }
+    public static function actualizarDatos($nombre,$correo,$tel,$provincia,$canton,$distrito,$dir,$id){
+        $query="UPDATE datos_usuario SET Nombre=:nombre,Correo=:correo,Telefono=:tel,
+        Provincia_ID=:provincia,Canton_ID=:canton,Distrito_ID=:distrito,Direccion_Exacta=:dir WHERE Identificacion=:id";
+        try{
+            self::getConexion();
+            $update=self::$cnx->prepare($query);
+            $update->bindParam(":nombre",$nombre,PDO::PARAM_STR);
+            $update->bindParam(":correo",$correo,PDO::PARAM_STR);
+            $update->bindParam(":tel",$tel,PDO::PARAM_STR);
+            $update->bindParam(":provincia",$provincia,PDO::PARAM_INT);
+            $update->bindParam(":canton",$canton,PDO::PARAM_INT);
+            $update->bindParam(":distrito",$distrito,PDO::PARAM_INT);
+            $update->bindParam(":dir",$dir,PDO::PARAM_STR);
+            $update->bindParam(":id",$id,PDO::PARAM_STR);
+            $update->execute();
+            self::desconectar();
+            return "actualizado";
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
+    }
+    public static function eliminar($id){
+        $query="DELETE FROM usuarios WHERE Usuario_ID=:id";
+        try{
+            self::getConexion();
+            $delete=self::$cnx->prepare($query);
+            $delete->bindParam(":id",$id,PDO::PARAM_INT);
+            $delete->execute();
+            self::desconectar();
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
+    }
+    public static function eliminarDatos($id){
+        $query="DELETE FROM datos_usuario WHERE Identificacion=:id";
+        try{
+            self::getConexion();
+            $delete=self::$cnx->prepare($query);
+            $delete->bindParam(":id",$id,PDO::PARAM_STR);
+            $delete->execute();
+            self::desconectar();
+        }catch (PDOException $e){
+            self::desconectar();
+            $error="Error ".$e->getCode().": ".$e->getMessage();
+            return $error; 
+        }
     }
 }

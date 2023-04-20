@@ -22,28 +22,27 @@ include_once 'generales.php';
 
     <!-- Load map styles -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-<!--
-    
-
 </head>
-
 <body>
     <!-- Start Top Nav -->
   <?php
-  NavbarN();
+  NavbarUsua();
   ?>
     <!-- Close Header -->
 
     <div class="container-contacto">
-  <form action="#" id="form" method="POST">
-    <h2>Solicitud de Mantenimiento</h2>
+  <form id="solicitud" method="POST">
+    <h2>Solicitud de Matenimiento</h2>
     <br>
-    <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" onkeypress="return sololetras(event)" onpaste="return false" required>
-    <input type="text" name="apellidos" id="apellidos" placeholder="Ingrese su apellido" required>
-    <input type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" required>
-    <input type="telephone" name="telefono" id="telefono" placeholder="Ingrese su telefono" required>
-    <textarea name="descripcion" id="descripcion" placeholder="Escriba la descripcion de la Atencion" required></textarea>
-    <input type="submit" id="btnGuardar" name="btnGuardar"value="Guadar" class="button" >
+    <input type="text" name="cliente" id="nombre" placeholder="Ingrese su Nombre" required>
+    <input type="text" name="correo" id="correo" placeholder="Ingrese su Correo" required>
+    <input type="text" name="celular" id="celular" placeholder="Ingrese su Telefonó" required>
+    <textarea name="descripcion" placeholder="Escriba su Mensaje" required></textarea>
+    <a>Subir imagen de la pieza/equipo(opcional)</a>
+    <br>
+    <br>
+    <input class="text-light" type="file" id="imagen" name="imagen"/>
+    <input type="submit" id="button-contacto" value="ENVIAR" class="button">
   </form>
   </div>
 
