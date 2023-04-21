@@ -327,6 +327,7 @@ function NavbarTecno(){
                     <li class="nav-item dropdown">
                      </li>
                       
+
                 </ul>
             </div>
             <div class="navbar align-self-center d-flex">

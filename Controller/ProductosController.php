@@ -160,7 +160,5 @@ session_start();
       echo 'No tenemos productos que mostrar';
     }
   }
-  
-  
 
-
+?>

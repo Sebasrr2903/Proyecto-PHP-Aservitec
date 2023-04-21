@@ -32,10 +32,11 @@ switch($_GET["op"]){
         break;
     case "calendario":
         $calendario=Tecnico::calendario($_GET["id"]);
-        if($calendario==null){
-            echo 1;
+        if($calendario!=null){
+            header("Content-Type: application/json");
+            $_SESSION["lista"]=(json_encode($calendario));
         }else{
-            
+            $_SESSION["lista"]=" ";
         }
         break;
 }
@@ -89,7 +90,7 @@ function ListaTecnicosC(){
                 '<td>'.$row2["Nombre"].'</td>'.
                 '<td>'.$row2["Correo"].'</td>';
             }
-            echo '<td><a href="#" class="btn btn-primary" onclick="calendarioTecnico('. $_SESSION["idTecnico"].')">Ver Calendario de trabajo</a></td>';
+            echo '<td><a href="../view/CalendarioTecnico.php" class="btn btn-primary">Ver Calendario de trabajo</a></td>';
         }
     }else{
         echo 'No hay tecnicos registrados';

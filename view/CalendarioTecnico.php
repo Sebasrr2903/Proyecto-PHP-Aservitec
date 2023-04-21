@@ -21,15 +21,16 @@ session_start();
 <?php
 NavbarAdmin();
 ?>
+<hr>
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-1">
         </div>
-        <div class="col-md-8">
-            <div id="calendarTec"></div>
+        <div class="col-md-9">
+            <div id="calendar"></div>
             <br>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
         </div>
     </div>
 </div>
@@ -37,6 +38,7 @@ NavbarAdmin();
 scripts();
 ?>
 <script>
+    calendarioTecnico(<?php echo $_SESSION["idTecnico"]?>);
     calendarioTec(<?php echo $_SESSION["lista"]?>);
 </script>
 </body>

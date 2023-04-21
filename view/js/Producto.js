@@ -29,11 +29,6 @@ $('#productos').on('submit', function(event){
         }
     });
 });
-
-
-
-
-
 function lista(){
     $.get(
         '../Controller/ProductosController.php?op=lista',{}
@@ -41,15 +36,6 @@ function lista(){
     .done(function(res){
         $("#lista").html(res); });
 }
-function infoProducto(){
-    $.get(
-        '../Controller/ProductosController.php?op=infoProducto',{}
-    )
-    .done(function(res){
-        $("#Productos").html(res); });
-}
-
-
 
 function eliminar(numero){
     $.get(
@@ -71,6 +57,7 @@ function info(numero){
         '../Controller/ProductosController.php?op=info',{id:numero},{}
     )
     .done(function(res){
+        console.log(res);
         $("#cuerpo").html(res); });
 }
 

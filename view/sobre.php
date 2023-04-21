@@ -116,8 +116,6 @@ include_once 'generales.php';
     <!-- End Section -->
 
 
-
-
     <!-- Start Footer -->
 <?php 
 Footer();
