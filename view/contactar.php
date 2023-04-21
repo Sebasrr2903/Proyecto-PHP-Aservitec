@@ -31,7 +31,7 @@ include_once 'generales.php';
 <body>
     <!-- Start Top Nav -->
   <?php
-  NavbarN();
+  NavbarUsua();
   ?>
     <!-- Close Header -->
 

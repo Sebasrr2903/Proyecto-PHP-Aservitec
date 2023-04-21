@@ -98,17 +98,6 @@ function NavbarN(){
         </div>
         </div>
                 <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                        <div class="input-group-text">
-                            <i class="fa fa-fw fa-search"></i>
-                        </div>
-                    </div>
-                </div>
-                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                </a> 
-                </li>
                 <a class="nav-icon position-relative text-decoration-none" href="../view/InicioSesion.php">
                     <i class="fa fa-fw fa-user text-dark mr-3"></i> Iniciar Sesion
                 </a>
@@ -134,7 +123,11 @@ function NavbarAdmin(){
         <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                    <li class="nav-item dropdown">
+                <li class="nav-item">
+                <a class="nav-link" href="indexAdmin.php">Inicio</a>
+                </li> 
+                
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Usuarios</a>
                     <ul class="dropdown-menu">    
                         <li><a class="dropdown-item" href="../view/CrearCuentaAdmin.php">Crear usuario</a>
@@ -158,7 +151,7 @@ function NavbarAdmin(){
                 </ul>
             </div>
             <div class="navbar align-self-center d-flex">
-                <a class="nav-icon position-relative text-decoration-none" href="#" onclick="cerrar()">
+                <a class="nav-icon position-relative text-decoration-none" href="InicioSesion.php" onclick="cerrar()">
                     <i class="fa fa-fw fa-user text-dark mr-3"></i> Cerrar Sesion
                 </a>
             </div>
@@ -245,13 +238,13 @@ function NavbarUsua(){
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="view/index.html">Inicio</a>
+                        <a class="nav-link" href="indexUsua.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="view/shop.html">Productos</a>
+                    <a class="nav-link" href="Productos.php">Productos</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="sobre.html">Solicitud de Matenimiento</a>
+                    <a class="nav-link" href="Solicitud.php">Solicitud de Matenimiento</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
@@ -300,8 +293,8 @@ function NavbarUsua(){
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
                 </a>
                 </li>
-                <a class="nav-icon position-relative text-decoration-none" href="#">
-                    <i class="fa fa-fw fa-user text-dark mr-3"></i> Iniciar Sesion
+                <a class="nav-icon position-relative text-decoration-none" href="InicioSesion.php">
+                    <i class="fa fa-fw fa-user text-dark mr-3"></i> Cerrar Sesion
                     
                 </a>
                 
@@ -326,36 +319,25 @@ function NavbarTecno(){
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Inicio</a>
+                        <a class="nav-link" href="indexTecno.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="listasSolicitud.php">Listas de Matenimiento</a>
+                    <a class="nav-link" href="listaSolicitudesTecno.php">Listas de Matenimiento</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Opciones
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="Contactenos.php">Contactenos</a></li>
-                            <li><a class="dropdown-item" href="#">Quienes Somos?</a></li>
-                        </ul>
-                    </li>
+                     </li>
+                      
+
                 </ul>
             </div>
             <div class="navbar align-self-center d-flex">
                 <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                        <div class="input-group-text">
-                            <i class="fa fa-fw fa-search"></i>
-                        </div>
-                    </div>
+                    
                 </div>
-                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                <a>
+             
                 </a>
-                <a class="nav-icon position-relative text-decoration-none" href="#">
+                <a class="nav-icon position-relative text-decoration-none" href="InicioSesion.php">
                     <i class="fa fa-fw fa-user text-dark mr-3"></i> Cerrar Sesion
                     
                 </a>

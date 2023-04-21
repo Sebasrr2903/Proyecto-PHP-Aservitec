@@ -29,7 +29,6 @@ $('#productos').on('submit', function(event){
         }
     });
 });
-
 function lista(){
     $.get(
         '../Controller/ProductosController.php?op=lista',{}

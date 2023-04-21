@@ -108,6 +108,22 @@ session_start();
                 <p class="card-text">Cantidad: '.$cantidad.'</p>
                 <p class="card-text">Precio: '.$precio.'</p>
               </div>';
+              break; 
+      case "infoProducto":
+           $producto=Producto::contar();
+           foreach ($producto as $row){
+               
+                echo '
+                <div class="row">
+                    <div class="col-12 col-md-4 p-5 mt-3">
+                        <a href="#"><img src="'.$row["imagen"].'"
+                              class="rounded-circle img-fluid border"></a>
+                        <h5 class="text-center mt-3 mb-3">' .$row["nombre"].'</h5>
+                        <p class="text-center">'.$row["descripcion"].'</p>
+                        <p class="text-center">Precio: '.$row["precio"].'</p>
+                        <p class="text-center"><a class="btn btn-success">Comprar!</a></p>
+                    </div>';
+                  }
   }
   function ListaProductos(){
     $lista=Producto::contar();
@@ -144,4 +160,5 @@ session_start();
       echo 'No tenemos productos que mostrar';
     }
   }
+
 ?>
